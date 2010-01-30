@@ -1,7 +1,0 @@
-\.orig$
-\.orig\..*$
-\.chg\..*$
-\.rej$
-\.conflict\~$
-^config/databases\.yml$
-^web/web\.config$
