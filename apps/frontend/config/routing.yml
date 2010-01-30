@@ -1,0 +1,58 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+profile_action:
+  url: /profile/:id/:action
+  param: { module: profile }
+  requirements: { id: \d+, action: view|edit }
+
+profile_view:
+  url: /profile/:id
+  class: sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param: { module: profile, action: view }
+  requirements: { id: \d+ }
+
+profile_view_own:
+  url: /profile
+  param: { module: profile, action: view }
+
+course:
+  url: /:url
+  class: sfDoctrineRoute
+  options: { model: Course, type: object }
+  param: { module: course, action: listLectures }
+
+lecture:
+  url: /:course_url/:lecture_url
+  class: LectureRoute
+  options: { model: Lecture, type: object }
+  param: { module: course, action: showLecture }
+  requirements:
+    sf_method: { 0 : get , 1 : post }
+
+# default rules
+homepage:
+  url:   /
+  param: { module: welcome, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+#
+#default:
+#  url:   /:module/:action/*

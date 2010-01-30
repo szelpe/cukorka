@@ -1,0 +1,44 @@
+@charset 'utf8';
+
+body {
+    
+}
+
+#page {
+    width: 960px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#header {
+    height: 100px;
+    border: thin solid black;
+    padding: 10px;
+}
+
+#header h1 {
+    display: inline;
+}
+
+#sidebar {
+    width: 200px;
+    float: left;
+    border: thin solid black;
+    padding: 10px;
+}
+
+#main {
+    border: thin solid black;
+    width: 700px;
+    float: right;
+    padding: 10px;
+}
+
+#footer {
+    clear: both;
+    border: thin solid black;
+}
+
+#login_box {
+    float: right;
+}

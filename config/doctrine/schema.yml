@@ -1,0 +1,212 @@
+Aid:
+  tableName: aid
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    course_id:
+      type: integer(4)
+      notnull: true
+    uploader_id:
+      type: integer(4)
+      notnull: true
+    filename:
+      type: string(128)
+      notnull: true
+    date:
+      type: timestamp(25)
+      notnull: true
+  relations:
+    Course:
+      local: course_id
+      foreign: id
+      type: one
+      foreignType: many
+      foreignAlias: Aids
+      onDelete: cascade
+    sfGuardUser:
+      local: uploader_id
+      foreign: id
+      type: one
+      foreignType: many
+      alias: Uploader
+      foreignAlias: Aids
+Course:
+  tableName: course
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    url:
+      type: string(128)
+      notnull: true
+      unique: true
+    title:
+      type: string(128)
+      notnull: true
+    description:
+      type: string(2147483647)
+      notnull: true
+  relations:
+    Aid:
+      local: id
+      foreign: course_id
+      type: many
+      foreignType: one
+      alias: Aids
+    Students:
+      class: sfGuardUser
+      refClass: CourseStudent
+      local: course_id
+      foreign: student_id
+      foreignAlias: CoursesAttend
+    Lecturers:
+      class: sfGuardUser
+      refClass: CourseLecturer
+      local: course_id
+      foreign: lecturer_id
+      foreignAlias: CoursesProfess
+    Lecture:
+      local: id
+      foreign: course_id
+      type: many
+      foreignType: one
+      alias: Lectures
+      foreignAlias: Course
+CourseStudent:
+  tableName: course_student
+  columns:
+    course_id:
+      type: integer(4)
+      primary: true
+    student_id:
+      type: integer(4)
+      primary: true
+  relations:
+    sfGuardUser:
+      local: student_id
+      foreign: id
+      type: one
+      onDelete: cascade
+    Course:
+      local: course_id
+      foreign: id
+      type: one
+      onDelete: cascade
+CourseLecturer:
+  tableName: course_lecturer
+  columns:
+    course_id:
+      type: integer(4)
+      primary: true
+    lecturer_id:
+      type: integer(4)
+      primary: true
+  relations:
+    sfGuardUser:
+      local: lecturer_id
+      foreign: id
+      type: one
+      onDelete: cascade
+    Course:
+      local: course_id
+      foreign: id
+      type: one
+      onDelete: cascade
+Homework:
+  tableName: homework
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(4)
+      notnull: true
+    lecture_id:
+      type: integer(4)
+      notnull: true
+    filename:
+      type: string(128)
+      notnull: true
+    date:
+      type: timestamp(25)
+      notnull: true
+    rate:
+      type: integer(4)
+      notnull: true
+  relations:
+    Lecture:
+      local: lecture_id
+      foreign: id
+      type: one
+      foreignType: many
+      alias: Lecture
+      foreignAlias: Homeworks
+      onDelete: cascade
+    sfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: many
+      alias: User
+      foreignAlias: Homeworks
+      onDelete: cascade
+Lecture:
+  tableName: lecture
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    url:
+      type: string(128)
+      notnull: true
+      unique: true
+    course_id:
+      type: integer(4)
+      notnull: true
+    title:
+      type: string(128)
+      notnull: true
+    description:
+      type: string(2147483647)
+      notnull: true
+    homeworktask:
+      type: text
+  relations:
+    Course:
+      local: course_id
+      foreign: id
+      type: one
+      foreignType: many
+      alias: Course
+      foreignAlias: Lectures
+      onDelete: cascade
+Profile:
+  tableName: profile
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(4)
+      notnull: true
+    full_name:
+      type: string(128)
+      notnull: true
+    email:
+      type: string(128)
+      notnull: true
+  relations:
+    sfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: one
+      alias: User
+      foreignAlias: Profile
+      onDelete: cascade
