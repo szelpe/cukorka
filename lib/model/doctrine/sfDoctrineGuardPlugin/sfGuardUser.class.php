@@ -25,4 +25,20 @@ class sfGuardUser extends PluginsfGuardUser {
         ->andWhere('h.lecture_id = ?', $lecture->id)
         ->fetchOne();
     }
+
+    /**
+     *
+     * @param Course $course
+     */
+    public function isLecturer($course) {
+        return $course->Lecturers->contains($this);
+    }
+
+    /**
+     *
+     * @param Course $course
+     */
+    public function isStudent($course) {
+        return $course->Students->contains($this);
+    }
 }

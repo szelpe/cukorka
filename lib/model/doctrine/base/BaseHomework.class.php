@@ -69,7 +69,7 @@ abstract class BaseHomework extends sfDoctrineRecord
              ));
         $this->hasColumn('rate', 'integer', 4, array(
              'type' => 'integer',
-             'notnull' => true,
+             'notnull' => false,
              'length' => '4',
              ));
     }

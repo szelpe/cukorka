@@ -17,7 +17,7 @@ abstract class BaseHomeworkFormFilter extends BaseFormFilterDoctrine
       'lecture_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Lecture'), 'add_empty' => true)),
       'filename'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'date'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'rate'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'rate'       => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(

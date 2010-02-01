@@ -21,6 +21,8 @@ class profileComponents extends sfComponents {
     public function executeLoginBox(sfWebRequest $request) {
         if(!$this->getUser()->isAuthenticated()) {
             $this->loginForm = new sfGuardFormSignin();
+        } else {
+            $this->user = $this->getUser()->getGuardUser();
         }
     }
 }

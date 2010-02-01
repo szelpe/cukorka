@@ -8,42 +8,12 @@
     <?php echo $lecture->homeworktask; ?>
     <div id="uploaded_homeworks">
         <p>Beadott házifeladatok:</p>
-        <table>
-            <thead>
-                <tr>
-                    <td>
-                        Név
-                    </td>
-                    <td>
-                        Fájl
-                    </td>
-                    <td>
-                        Értékelés
-                    </td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($lecture->Homeworks as $homework) : ?>
-                <tr>
-                    <td>
-                            <?php echo link_to($homework->User->Profile->full_name, 'profile_view', array('id' => $homework->User->Profile->id)); ?>
-                    </td>
-                    <td>
-                            <?php echo $homework->filename; ?>
-                    </td>
-                    <td>
-                            <?php echo $homework->rate; ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <?php include_partial('homeworkTable', array('course' => $course,'lecture' => $lecture, 'user' => $user)) ?>
     </div>
-    <div id="homework_form">
-        <form method="POST" enctype="multipart/form-data" action="<?php echo url_for('lecture', array('lecture_url' => $lecture->url,'course_url' => $course->url)) ?>">
-        <?php echo $form; ?>
-            <input type="submit" />
-        </form>
-    </div>
+    <?php if($user && $user->isStudent($course)): ?>
+        <div id="homework_form">
+            <?php include_partial('homeworkForm', array('form' => $form, 'lecture' => $lecture, 'course' => $course)); ?>
+        </div>
+    <?php endif; ?>
 </div>
 <?php end_slot(); ?>

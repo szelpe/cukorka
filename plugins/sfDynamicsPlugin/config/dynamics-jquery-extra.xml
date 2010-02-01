@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+
+<dynamics>
+  <package name="jquery.extra.cookie">
+    <require>jquery</require>
+    <javascript>jquery/extra/cookie</javascript>
+  </package>
+
+  <package name="jquery.extra.form">
+    <require>jquery</require>
+    <require>loader</require>
+    <javascript>jquery/extra/form</javascript>
+    <method name="ajaxify">
+      <javascript>
+        <component module="sfDynamicsJqueryExtra" action="form_ajaxify">
+          <parameter name="target" />
+          <parameter name="form_id" />
+        </component>
+      </javascript>
+    </method>
+    <method name="observe">
+      <javascript>
+        <component module="sfDynamicsJqueryExtra" action="form_observe">
+          <parameter name="target" />
+          <parameter name="update" />
+          <parameter name="url" />
+        </component>
+      </javascript>
+    </method>
+  </package>
+
+  <package name="jquery.extra.box" packable="false">
+    <require>jquery</require>
+    <javascript>jquery/extra/box</javascript>
+    <stylesheet>jquery/extra/box</stylesheet>
+  </package>
+
+  <package name="jquery.extra.links">
+    <require>jquery</require>
+    <javascript>jquery/plugin/links</javascript>
+  </package>
+
+  <package name="jquery.extra.ajaxloader">
+    <require>jquery</require>
+    <stylesheet>jquery/extra/ajaxloader</stylesheet>
+    <javascript>jquery/extra/ajaxloader</javascript>
+  </package>
+
+  <package name="jquery.extra.tooltip">
+    <require>jquery</require>
+    <javascript>jquery/extra/tooltip</javascript>
+    <stylesheet>jquery/extra/tooltip</stylesheet>
+  </package>
+
+</dynamics>

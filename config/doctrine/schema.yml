@@ -136,7 +136,7 @@ Homework:
       notnull: true
     rate:
       type: integer(4)
-      notnull: true
+      notnull: false
   relations:
     Lecture:
       local: lecture_id

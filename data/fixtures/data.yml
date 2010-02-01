@@ -1,0 +1,84 @@
+Course:
+  Course_1:
+    url: alma
+    title: alma
+    description: amla
+  Course_2:
+    url: fasz
+    title: fasz
+    description: fasz
+CourseLecturer:
+  CourseLecturer_1_1:
+    Course: Course_1
+    sfGuardUser: sfGuardUser_1
+CourseStudent:
+  CourseStudent_2_1:
+    Course: Course_2
+    sfGuardUser: sfGuardUser_1
+  CourseStudent_1_2:
+    Course: Course_1
+    sfGuardUser: sfGuardUser_2
+Homework:
+  Homework_26:
+    User: sfGuardUser_2
+    Lecture: Lecture_1
+    filename: dragi_blog.rar
+    date: '2010-02-01 01:30:44'
+    rate: '0'
+  Homework_32:
+    User: sfGuardUser_1
+    Lecture: Lecture_1
+    filename: dragi_blog.rar
+    date: '2010-02-01 02:39:27'
+    rate: '0'
+Lecture:
+  Lecture_1:
+    url: korte
+    Course: Course_1
+    title: korte
+    description: korte
+    homeworktask: korte
+  Lecture_2:
+    url: pina
+    Course: Course_1
+    title: pina
+    description: pina
+    homeworktask: pina
+Profile:
+  Profile_1:
+    User: sfGuardUser_1
+    full_name: 'Szél Péter'
+    email: szelpe@gmail.com
+  Profile_2:
+    User: sfGuardUser_2
+    full_name: 'Bornemissza Péter'
+    email: faszom@jakab.hu
+sfGuardRememberKey:
+  sfGuardRememberKey_7_127.0.0.1:
+    id: '7'
+    sfGuardUser: sfGuardUser_1
+    remember_key: d04e7d2319c66ee583e126ba07b179e7
+    ip_address: 127.0.0.1
+    created_at: '2010-02-01 02:47:30'
+    updated_at: '2010-02-01 02:47:30'
+sfGuardUser:
+  sfGuardUser_1:
+    username: szelpe
+    algorithm: sha1
+    salt: 7fc4956a07b9e21756022392435e5535
+    password: e3e501c51cffbf208af195f6f2dd62297258e7b1
+    is_active: true
+    is_super_admin: false
+    last_login: '2010-02-01 09:56:13'
+    created_at: '2009-12-02 21:57:50'
+    updated_at: '2010-02-01 09:56:13'
+  sfGuardUser_2:
+    username: peter
+    algorithm: sha1
+    salt: 0351861e46f44bfb4d98b4785686271c
+    password: 2c6c22753a23e9e5e70272ce78076d3ded0f6026
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2009-12-02 23:54:23'
+    updated_at: '2009-12-03 02:46:00'

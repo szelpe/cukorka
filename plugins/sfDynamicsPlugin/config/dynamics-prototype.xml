@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+
+<dynamics>
+
+  <package name="prototype">
+    <conflict>jquery</conflict>
+    <javascript>prototype/prototype-1.6.0.3-dynamics</javascript>
+  </package>
+
+</dynamics>

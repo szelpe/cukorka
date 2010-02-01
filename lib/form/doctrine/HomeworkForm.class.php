@@ -14,7 +14,9 @@ class HomeworkForm extends BaseHomeworkForm
   {
       $this->useFields(array('filename'));
 
-      $this->widgetSchema['filename'] = new sfWidgetFormInputFile();
+      $this->widgetSchema['filename'] = new sfWidgetFormInputFile(array(
+          'label' => ' '
+      ));
       
       $this->validatorSchema['filename'] = new sfValidatorFile(array(
           'max_size' => '200000',

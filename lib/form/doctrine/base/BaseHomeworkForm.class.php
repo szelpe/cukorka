@@ -29,7 +29,7 @@ abstract class BaseHomeworkForm extends BaseFormDoctrine
       'lecture_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Lecture'))),
       'filename'   => new sfValidatorString(array('max_length' => 128)),
       'date'       => new sfValidatorDateTime(),
-      'rate'       => new sfValidatorInteger(),
+      'rate'       => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('homework[%s]');

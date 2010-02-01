@@ -9,5 +9,5 @@
     <a href="<?php echo url_for('@sf_guard_password') ?>"><?php echo __('Forgot your password?') ?></a>
 </form>
 <?php else : ?>
-<?php echo link_to('Logout', '@sf_guard_signout') ?>
+<?php echo $user->username . ' ' . link_to('Logout', '@sf_guard_signout') ?>
 <?php endif;; ?>

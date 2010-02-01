@@ -29,6 +29,10 @@ profile_view_own:
   url: /profile
   param: { module: profile, action: view }
 
+rate_homework:
+  url: /ajax/rate_homework
+  param: { module: course, action: ajaxRateHomework }
+
 course:
   url: /:url
   class: sfDoctrineRoute

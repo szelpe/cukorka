@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+
+<dynamics>
+    <import resource="dynamics-jquery.xml" />
+    <package name="cukorka.rateselector">
+        <require>jquery</require>
+        <javascript>rateselector</javascript>
+    </package>
+</dynamics>

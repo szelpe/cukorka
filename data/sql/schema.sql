@@ -2,7 +2,7 @@ CREATE TABLE aid (id INT AUTO_INCREMENT, course_id INT NOT NULL, uploader_id INT
 CREATE TABLE course (id INT AUTO_INCREMENT, url VARCHAR(128) NOT NULL UNIQUE, title VARCHAR(128) NOT NULL, description TEXT NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE course_lecturer (course_id INT, lecturer_id INT, PRIMARY KEY(course_id, lecturer_id)) ENGINE = INNODB;
 CREATE TABLE course_student (course_id INT, student_id INT, PRIMARY KEY(course_id, student_id)) ENGINE = INNODB;
-CREATE TABLE homework (id INT AUTO_INCREMENT, user_id INT NOT NULL, lecture_id INT NOT NULL, filename VARCHAR(128) NOT NULL, date DATETIME NOT NULL, rate INT NOT NULL, INDEX lecture_id_idx (lecture_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE homework (id INT AUTO_INCREMENT, user_id INT NOT NULL, lecture_id INT NOT NULL, filename VARCHAR(128) NOT NULL, date DATETIME NOT NULL, rate INT, INDEX lecture_id_idx (lecture_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE lecture (id INT AUTO_INCREMENT, url VARCHAR(128) NOT NULL UNIQUE, course_id INT NOT NULL, title VARCHAR(128) NOT NULL, description TEXT NOT NULL, homeworktask text, INDEX course_id_idx (course_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE profile (id INT AUTO_INCREMENT, user_id INT NOT NULL, full_name VARCHAR(128) NOT NULL, email VARCHAR(128) NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group (id INT AUTO_INCREMENT, name VARCHAR(255) UNIQUE, description TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
