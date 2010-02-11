@@ -1,5 +1,5 @@
 <?php slot('main'); ?>
-<form method="POST" action="<?php echo url_for('profile_action', array('id' => $user->id, 'action' => 'edit')); ?>">
+<form method="POST" action="<?php echo $action; ?>">
     <table>
         <?php echo $form; ?>
         <tr>

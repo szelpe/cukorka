@@ -58,10 +58,14 @@ class courseActions extends sfActions {
         $this->course = $this->lecture->Course;
         $this->form = new HomeworkForm();
 
+
         if($request->isMethod('POST')) {
             $file = $request->getFiles('homework');
-            $data = $request->getPostParameter('homework');
+            $data = $request->getParameter('homework');
 
+            $dest = $this->getHomeworkPath();
+            $this->form->getValidator('filename')->setOption('path', $dest);
+            
             $this->form->bind($data, $file);
 
             if($this->form->isValid()) {
@@ -69,26 +73,18 @@ class courseActions extends sfActions {
                 //kitöröljük az előzőekben feltöltött házifeladatot
                 $this->deletePrevUploadedHomework();
 
-                //fájl másolása
-                $dest = $this->getHomeworkPath($file['filename']['name']);
-                $filesystem = new sfFilesystem();
-                $filesystem->copy($file['filename']['tmp_name'], $dest );
-                $filesystem->remove($file['filename']['tmp_name']);
-
                 //adatbázis írása
                 $values = array(
-                        'filename' => $file['filename']['name'],
                         'user_id' => $this->user->id,
                         'lecture_id' => $this->lecture->id,
                         'date' => date('Y-m-d H:i:s')
                 );
 
-                $this->homework = $this->form->updateObject();
-                $this->homework->fromArray($values);
-                $this->homework->save();
+                $this->form->updateObject($values);
+                $this->form->save();
 
                 $this->getUser()->setFlash('message', 'Sikeresen feltöltötted a házifeladatodat!');
-                $this->redirect('/' . $this->course->url . '/' . $this->lecture->url );
+                $this->redirect($request->getUri());
             }
         }
 
@@ -97,7 +93,7 @@ class courseActions extends sfActions {
         $this->setVar('form', $this->form);
         $this->setVar('user', $this->user);
 
-        if($user && $this->user->isLecturer($this->course)) {
+        if($this->user && $this->user->isLecturer($this->course)) {
             sfDynamics::load('cukorka.rateselector');
         }
     }
@@ -118,7 +114,7 @@ class courseActions extends sfActions {
         if($this->homework) {
             $filename = $this->homework->filename;
             $this->homework->delete();
-            unlink($this->getHomeworkPath($filename));
+            @unlink($this->getHomeworkPath($filename));
         }
 
 
@@ -130,7 +126,7 @@ class courseActions extends sfActions {
      * @param string $filename
      * @return string
      */
-    protected function getHomeworkPath($filename) {
+    protected function getHomeworkPath($filename = '') {
         $uploadDir = sfFinder::type('directory')
                 ->name('uploads')
                 ->in(dirname(__FILE__) . '/../../../../../web');

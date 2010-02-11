@@ -13,6 +13,10 @@ sf_guard_password:
   url:   /request_password
   param: { module: sfGuardAuth, action: password }
 
+register:
+  url: /register
+  param: { module: profile, action: edit }
+
 profile_action:
   url: /profile/:id/:action
   param: { module: profile }

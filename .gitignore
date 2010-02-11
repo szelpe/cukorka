@@ -1,3 +1,5 @@
 /web/uploads/*
 /config/databases.yml
 /web/web.config
+/cache/*
+/log/*
