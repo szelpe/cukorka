@@ -9,34 +9,47 @@
         <?php include_javascripts() ?>
     </head>
     <body>
-        <div id="page">
-            <div id="header">
-                <h1>Cukorka.SCH</h1>
-                <span>HMS - Homework Management System</span>
+        <div id="templatemo_container">
+            <div id="templatemo_menu"> 
                 <div id="login_box">
-                    <?php include_component('profile', 'loginBox') ?>
+                <?php include_component('profile', 'loginBox') ?>
                 </div>
-            </div>
-            <div id="content">
+            </div> <!-- end of menu -->
+
+            <div id="templatemo_banner_bar">
+                <div id="site_title">
+                    <h1>
+                        <a href="/">Cukorka.SCH<span>Webteam HMS - Homework Management System</span></a>            </h1>
+                </div>
+            </div> <!-- end of banner -->
+
+            <div id="templatemo_content">
                 <div id="messages">
                     <?php if ($sf_user->hasFlash('message')): ?>
                         <?php echo $sf_user->getFlash('message') ?>
                     <?php endif; ?>
                 </div>
-                <div id="sidebar">
+
+                <div id="side_column">
                     <?php if (has_slot('sidebar')): ?>
                         <?php include_slot('sidebar') ?>
                     <?php endif; ?>
-                </div>
-                <div id="main">
+                </div><!-- end of side column -->
+
+                <div id="main_column">
                     <?php if (has_slot('main')): ?>
                         <?php include_slot('main') ?>
                     <?php endif; ?>
-                </div>
+                </div> <!-- end of main column -->
+
+                <div class="cleaner"></div>
+            </div> <!-- end of content -->
+            <div id="templatemo_footer_bar">
+                Copyright © 2010 <a href="http://kszk.sch.bme.hu/webteam">KSZK Webteam</a> |
+                Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a> |
+                Validate <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
             </div>
-            <div id="footer">
-                Copyright Webteam 2010
-            </div>
-        </div>
+
+        </div><!-- end of container -->
     </body>
 </html>

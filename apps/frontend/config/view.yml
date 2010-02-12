@@ -6,13 +6,13 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
-    #robots:       index, follow
+    title:        Cukorka.SCH
+    description:  Házifeltöltő és motivációs oldal
+    keywords:     cukorka, KSZK, Webteam
+    language:     hu
+    robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [templatemo_style.css]
 
   javascripts:    []
 

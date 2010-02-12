@@ -38,3 +38,5 @@ all:
 
     # Enable the database manager
     use_database:           true
+    i18n: true
+    default_culture: hu
