@@ -18,7 +18,7 @@
  * @subpackage form
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
  * @author     Jonathan H. Wage <jonwage@gmail.com>
- * @version    SVN: $Id: sfFormDoctrine.class.php 24537 2009-11-30 05:06:09Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfFormDoctrine.class.php 27915 2010-02-11 18:12:56Z Kris.Wallsmith $
  */
 abstract class sfFormDoctrine extends sfFormObject
 {
@@ -227,17 +227,18 @@ abstract class sfFormDoctrine extends sfFormObject
    */
   protected function updateDefaultsFromObject()
   {
+    $defaults = $this->getDefaults();
+
     // update defaults for the main object
     if ($this->isNew())
     {
-      $this->setDefaults(array_merge($this->getObject()->toArray(false), $this->getDefaults()));
+      $defaults = $defaults + $this->getObject()->toArray(false);
     }
     else
     {
-      $this->setDefaults(array_merge($this->getDefaults(), $this->getObject()->toArray(false)));
+      $defaults = $this->getObject()->toArray(false) + $defaults;
     }
 
-    $defaults = $this->getDefaults();
     foreach ($this->embeddedForms as $name => $form)
     {
       if ($form instanceof sfFormDoctrine)
@@ -246,6 +247,7 @@ abstract class sfFormDoctrine extends sfFormObject
         $defaults[$name] = $form->getDefaults();
       }
     }
+
     $this->setDefaults($defaults);
   }
 
@@ -309,9 +311,10 @@ abstract class sfFormDoctrine extends sfFormObject
       throw new LogicException(sprintf('You cannot remove the current file for field "%s" as the field is not a file.', $field));
     }
 
-    if (($directory = $this->validatorSchema[$field]->getOption('path')) && is_file($directory.$this->getObject()->$field))
+    $directory = $this->validatorSchema[$field]->getOption('path');
+    if ($directory && is_file($file = $directory.'/'.$this->getObject()->$field))
     {
-      unlink($directory.$this->getObject()->$field);
+      unlink($file);
     }
   }
 

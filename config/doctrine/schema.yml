@@ -11,7 +11,7 @@ Aid:
     uploader_id:
       type: integer(4)
       notnull: true
-    filename:
+    file:
       type: string(128)
       notnull: true
     date:
@@ -172,10 +172,12 @@ Lecture:
       type: string(128)
       notnull: true
     description:
-      type: string(2147483647)
+      type: text
       notnull: true
     homeworktask:
       type: text
+    hasHomeworkUploadField:
+      type: bool
   relations:
     Course:
       local: course_id

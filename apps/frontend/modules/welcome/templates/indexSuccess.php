@@ -1,4 +1,5 @@
 <?php slot('main'); ?>
+<h2>Tanfolyamok listája</h2>
 <dl>
     <?php foreach($courses as $course) : ?>
     <dt><?php echo link_to($course->title, 'course', $course); ?></dt>

@@ -1,5 +1,5 @@
 <?php slot('main'); ?>
-<h1>Profil</h1>
+<h2>Profil</h2>
 <table>
     <caption>
         <?php echo $user->Profile->full_name . ' profilja'; ?>
@@ -13,7 +13,7 @@
         <td><?php echo $user->Profile->email; ?></td>
     </tr>
 </table>
-<h2>Tanfolyamok, ahol előadást tart:</h2>
+<h3>Tanfolyamok, ahol előadást tart:</h3>
 <ul>
     <?php foreach($user->CoursesProfess as $course) : ?>
     <li>
@@ -21,7 +21,7 @@
     </li>
     <?php endforeach; ?>
 </ul>
-<h2>Tanfolyamok, melyeken részt vesz:</h2>
+<h3>Tanfolyamok, melyeken részt vesz:</h3>
 <ul>
     <?php foreach($user->CoursesAttend as $course) : ?>
     <li>

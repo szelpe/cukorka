@@ -12,5 +12,7 @@ class AidForm extends BaseAidForm
 {
   public function configure()
   {
+      $this->useFields(array('file'));
+      $this->widgetSchema['file'] = new sfWidgetFormInputFileEditable();
   }
 }

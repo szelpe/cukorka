@@ -18,7 +18,7 @@ abstract class BaseAidForm extends BaseFormDoctrine
       'id'          => new sfWidgetFormInputHidden(),
       'course_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Course'), 'add_empty' => false)),
       'uploader_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Uploader'), 'add_empty' => false)),
-      'filename'    => new sfWidgetFormInputText(),
+      'file'        => new sfWidgetFormInputText(),
       'date'        => new sfWidgetFormDateTime(),
     ));
 
@@ -26,7 +26,7 @@ abstract class BaseAidForm extends BaseFormDoctrine
       'id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'course_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Course'))),
       'uploader_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Uploader'))),
-      'filename'    => new sfValidatorString(array('max_length' => 128)),
+      'file'        => new sfValidatorString(array('max_length' => 128)),
       'date'        => new sfValidatorDateTime(),
     ));
 

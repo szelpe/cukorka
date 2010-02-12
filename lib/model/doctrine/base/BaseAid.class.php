@@ -8,7 +8,7 @@
  * @property integer $id
  * @property integer $course_id
  * @property integer $uploader_id
- * @property string $filename
+ * @property string $file
  * @property timestamp $date
  * @property Course $Course
  * @property sfGuardUser $Uploader
@@ -16,14 +16,14 @@
  * @method integer     getId()          Returns the current record's "id" value
  * @method integer     getCourseId()    Returns the current record's "course_id" value
  * @method integer     getUploaderId()  Returns the current record's "uploader_id" value
- * @method string      getFilename()    Returns the current record's "filename" value
+ * @method string      getFile()        Returns the current record's "file" value
  * @method timestamp   getDate()        Returns the current record's "date" value
  * @method Course      getCourse()      Returns the current record's "Course" value
  * @method sfGuardUser getUploader()    Returns the current record's "Uploader" value
  * @method Aid         setId()          Sets the current record's "id" value
  * @method Aid         setCourseId()    Sets the current record's "course_id" value
  * @method Aid         setUploaderId()  Sets the current record's "uploader_id" value
- * @method Aid         setFilename()    Sets the current record's "filename" value
+ * @method Aid         setFile()        Sets the current record's "file" value
  * @method Aid         setDate()        Sets the current record's "date" value
  * @method Aid         setCourse()      Sets the current record's "Course" value
  * @method Aid         setUploader()    Sets the current record's "Uploader" value
@@ -54,7 +54,7 @@ abstract class BaseAid extends sfDoctrineRecord
              'notnull' => true,
              'length' => '4',
              ));
-        $this->hasColumn('filename', 'string', 128, array(
+        $this->hasColumn('file', 'string', 128, array(
              'type' => 'string',
              'notnull' => true,
              'length' => '128',

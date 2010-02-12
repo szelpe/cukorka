@@ -1,36 +1,48 @@
 Course:
   Course_1:
-    url: alma
-    title: alma
-    description: amla
-  Course_2:
-    url: fasz
-    title: fasz
-    description: fasz
+    url: Webteam_alapcsomag
+    title: 'Webteam alapcsomag'
+    description: 'Alapozó webfejlesztés, teljesen kezdők számára kidolgozva'
+  Course_8:
+    url: ASPNET_tanfolyam
+    title: 'ASP.NET tanfolyam'
+    description: 'Kezdő ASP.NET tanfolyam, minden érdeklődőnek'
 CourseLecturer:
   CourseLecturer_1_1:
     Course: Course_1
     sfGuardUser: sfGuardUser_1
+  CourseLecturer_1_2:
+    Course: Course_1
+    sfGuardUser: sfGuardUser_2
+  CourseLecturer_8_6:
+    Course: Course_8
+    sfGuardUser: sfGuardUser_6
 CourseStudent:
-  CourseStudent_2_1:
-    Course: Course_2
+  CourseStudent_8_1:
+    Course: Course_8
     sfGuardUser: sfGuardUser_1
   CourseStudent_1_2:
     Course: Course_1
     sfGuardUser: sfGuardUser_2
 Homework:
-  Homework_26:
+  Homework_1:
     User: sfGuardUser_2
     Lecture: Lecture_1
     filename: dragi_blog.rar
     date: '2010-02-01 01:30:44'
-    rate: '0'
-  Homework_32:
+    rate: '9'
+  Homework_3:
     User: sfGuardUser_1
     Lecture: Lecture_1
+    filename: dragonfly.rar
+    date: '2010-02-01 10:13:24'
+    rate: '8'
+  Homework_18:
+    User: sfGuardUser_1
+    Lecture: Lecture_5
     filename: dragi_blog.rar
-    date: '2010-02-01 02:39:27'
-    rate: '0'
+    date: '2010-02-12 02:28:36'
+    rate: null
 Lecture:
   Lecture_1:
     url: korte
@@ -44,6 +56,18 @@ Lecture:
     title: pina
     description: pina
     homeworktask: pina
+  Lecture_4:
+    url: uj_almok_megvalositasa
+    Course: Course_1
+    title: 'új álmok megvalósítása'
+    description: 'hajjaj de jó lesz :)'
+    homeworktask: feladat
+  Lecture_5:
+    url: 1_eloadas
+    Course: Course_8
+    title: '1. előadás'
+    description: 'Ismerkedés a .NET keretrendszerrel'
+    homeworktask: 'Írjál egy modult'
 Profile:
   Profile_1:
     User: sfGuardUser_1
@@ -53,32 +77,46 @@ Profile:
     User: sfGuardUser_2
     full_name: 'Bornemissza Péter'
     email: faszom@jakab.hu
+  Profile_6:
+    User: sfGuardUser_6
+    full_name: asd
+    email: asd@asd.hu
 sfGuardRememberKey:
-  sfGuardRememberKey_7_127.0.0.1:
-    id: '7'
+  sfGuardRememberKey_8_127.0.0.1:
+    id: '8'
     sfGuardUser: sfGuardUser_1
-    remember_key: d04e7d2319c66ee583e126ba07b179e7
+    remember_key: f6f829ee414baf291c6111efd78b892c
     ip_address: 127.0.0.1
-    created_at: '2010-02-01 02:47:30'
-    updated_at: '2010-02-01 02:47:30'
+    created_at: '2010-02-01 22:45:22'
+    updated_at: '2010-02-01 22:45:22'
 sfGuardUser:
   sfGuardUser_1:
     username: szelpe
     algorithm: sha1
-    salt: 7fc4956a07b9e21756022392435e5535
-    password: e3e501c51cffbf208af195f6f2dd62297258e7b1
+    salt: 89eadbe5a7214b3be085962bb9895f65
+    password: 5cf764409e5c8cce1e14967cf4649b5dc06a8e86
     is_active: true
     is_super_admin: false
-    last_login: '2010-02-01 09:56:13'
+    last_login: '2010-02-12 02:10:55'
     created_at: '2009-12-02 21:57:50'
-    updated_at: '2010-02-01 09:56:13'
+    updated_at: '2010-02-12 02:10:55'
   sfGuardUser_2:
     username: peter
     algorithm: sha1
     salt: 0351861e46f44bfb4d98b4785686271c
-    password: 2c6c22753a23e9e5e70272ce78076d3ded0f6026
+    password: 2e4ade629b8d8d4c52aac9c2be889af8ff65bf1f
     is_active: true
     is_super_admin: false
     last_login: null
     created_at: '2009-12-02 23:54:23'
     updated_at: '2009-12-03 02:46:00'
+  sfGuardUser_6:
+    username: petike
+    algorithm: sha1
+    salt: 89eadbe5a7214b3be085962bb9895f65
+    password: 5cf764409e5c8cce1e14967cf4649b5dc06a8e86
+    is_active: true
+    is_super_admin: false
+    last_login: '2010-02-01 20:20:57'
+    created_at: '2010-02-01 20:20:42'
+    updated_at: '2010-02-01 20:20:57'

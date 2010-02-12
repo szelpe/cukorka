@@ -17,6 +17,9 @@
         </div>
         <?php endif; ?>
     </div>
+    <div id="aid">
+        <?php //echo $aidForm; ?>
+    </div>
 </div>
 <div class="cleaner"></div>
 <?php end_slot(); ?>

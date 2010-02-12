@@ -361,15 +361,14 @@ table {
     margin: 20px;
 }
 
-thead {
+thead, th, caption {
     background: #95794b;
     color: #271e18;
     font-weight: bold;
 }
 
-td {
+td, th, caption {
     padding: 2px 5px 2px 5px;
-    
 }
 
 tbody td, tbody td a:link, tbody td a:visited {
@@ -377,7 +376,7 @@ tbody td, tbody td a:link, tbody td a:visited {
     color: #271e18;
 }
 
-table, td {
+table, td, th, caption {
     border: thin solid #d9d9d9;
     border-collapse: collapse;
     border-spacing: 0px;
@@ -388,4 +387,10 @@ table tr td span {
     display: block;
     width: 10px;
     overflow: visible;
+}
+
+td input[type=submit] {
+    margin: auto;
+    width: 60px;
+    display: block;
 }

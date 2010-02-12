@@ -57,6 +57,7 @@ class courseActions extends sfActions {
         $this->lecture = $this->getRoute()->getObject();
         $this->course = $this->lecture->Course;
         $this->form = new HomeworkForm();
+        $this->aidForm = new AidForm();
 
 
         if($request->isMethod('POST')) {

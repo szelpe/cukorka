@@ -13,7 +13,6 @@ require_once dirname(__FILE__) . '/../../../apps/backend/lib/transliteration.php
 class LectureForm extends BaseLectureForm {
     public function configure() {
         $this->widgetSchema['url'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['homeworktask'] = new sfWidgetFormTextarea();
     }
 
     public function bind(array $taintedValues = null, array $taintedFiles = null) {

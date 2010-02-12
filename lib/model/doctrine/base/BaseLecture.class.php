@@ -9,27 +9,30 @@
  * @property string $url
  * @property integer $course_id
  * @property string $title
- * @property string $description
+ * @property text $description
  * @property text $homeworktask
+ * @property bool $hasHomeworkUploadField
  * @property Course $Course
  * @property Doctrine_Collection $Homeworks
  * 
- * @method integer             getId()           Returns the current record's "id" value
- * @method string              getUrl()          Returns the current record's "url" value
- * @method integer             getCourseId()     Returns the current record's "course_id" value
- * @method string              getTitle()        Returns the current record's "title" value
- * @method string              getDescription()  Returns the current record's "description" value
- * @method text                getHomeworktask() Returns the current record's "homeworktask" value
- * @method Course              getCourse()       Returns the current record's "Course" value
- * @method Doctrine_Collection getHomeworks()    Returns the current record's "Homeworks" collection
- * @method Lecture             setId()           Sets the current record's "id" value
- * @method Lecture             setUrl()          Sets the current record's "url" value
- * @method Lecture             setCourseId()     Sets the current record's "course_id" value
- * @method Lecture             setTitle()        Sets the current record's "title" value
- * @method Lecture             setDescription()  Sets the current record's "description" value
- * @method Lecture             setHomeworktask() Sets the current record's "homeworktask" value
- * @method Lecture             setCourse()       Sets the current record's "Course" value
- * @method Lecture             setHomeworks()    Sets the current record's "Homeworks" collection
+ * @method integer             getId()                     Returns the current record's "id" value
+ * @method string              getUrl()                    Returns the current record's "url" value
+ * @method integer             getCourseId()               Returns the current record's "course_id" value
+ * @method string              getTitle()                  Returns the current record's "title" value
+ * @method text                getDescription()            Returns the current record's "description" value
+ * @method text                getHomeworktask()           Returns the current record's "homeworktask" value
+ * @method bool                getHasHomeworkUploadField() Returns the current record's "hasHomeworkUploadField" value
+ * @method Course              getCourse()                 Returns the current record's "Course" value
+ * @method Doctrine_Collection getHomeworks()              Returns the current record's "Homeworks" collection
+ * @method Lecture             setId()                     Sets the current record's "id" value
+ * @method Lecture             setUrl()                    Sets the current record's "url" value
+ * @method Lecture             setCourseId()               Sets the current record's "course_id" value
+ * @method Lecture             setTitle()                  Sets the current record's "title" value
+ * @method Lecture             setDescription()            Sets the current record's "description" value
+ * @method Lecture             setHomeworktask()           Sets the current record's "homeworktask" value
+ * @method Lecture             setHasHomeworkUploadField() Sets the current record's "hasHomeworkUploadField" value
+ * @method Lecture             setCourse()                 Sets the current record's "Course" value
+ * @method Lecture             setHomeworks()              Sets the current record's "Homeworks" collection
  * 
  * @package    cukorka
  * @subpackage model
@@ -63,13 +66,15 @@ abstract class BaseLecture extends sfDoctrineRecord
              'notnull' => true,
              'length' => '128',
              ));
-        $this->hasColumn('description', 'string', 2147483647, array(
-             'type' => 'string',
+        $this->hasColumn('description', 'text', null, array(
+             'type' => 'text',
              'notnull' => true,
-             'length' => '2147483647',
              ));
         $this->hasColumn('homeworktask', 'text', null, array(
              'type' => 'text',
+             ));
+        $this->hasColumn('hasHomeworkUploadField', 'bool', null, array(
+             'type' => 'bool',
              ));
     }
 
