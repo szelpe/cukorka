@@ -1,3 +1,16 @@
+Aid:
+  Aid_1:
+    title: asdasd
+    Lecture: Lecture_3
+    Uploader: sfGuardUser_1
+    file: aspnet.txt
+    date: '2010-02-13 01:07:34'
+  Aid_2:
+    title: title
+    Lecture: Lecture_3
+    Uploader: sfGuardUser_1
+    file: templatemo_187_general.zip
+    date: '2010-02-13 01:22:53'
 Course:
   Course_1:
     url: Webteam_alapcsomag
@@ -24,6 +37,13 @@ CourseStudent:
   CourseStudent_1_3:
     Course: Course_1
     sfGuardUser: sfGuardUser_3
+Homework:
+  Homework_2:
+    User: sfGuardUser_1
+    Lecture: Lecture_3
+    file: dragi_blog.rar
+    date: '2010-02-13 01:20:10'
+    rate: null
 Lecture:
   Lecture_1:
     url: Bevezeto
@@ -72,17 +92,17 @@ sfGuardUser:
     username: szelpe
     algorithm: sha1
     salt: 8406c7a9520aa7adb86c418603ec0189
-    password: 830f0537f33150608b64a2adb32d268c1c1e40e7
+    password: 1f7130c8cb0462ffd4b225bc81fa533a39e296e6
     is_active: true
     is_super_admin: true
-    last_login: '2010-02-12 23:31:09'
+    last_login: '2010-02-13 01:58:24'
     created_at: '2010-02-12 23:30:21'
-    updated_at: '2010-02-12 23:31:09'
+    updated_at: '2010-02-13 01:58:24'
   sfGuardUser_2:
     username: peter
     algorithm: sha1
     salt: a409fbb2f586a685b5981e894d04c191
-    password: e08c7c384f29a839d22fda52e9a565c6f4cc0652
+    password: f950a31471e124f5104e10a07f24fac013c12fa8
     is_active: true
     is_super_admin: false
     last_login: null
@@ -92,7 +112,7 @@ sfGuardUser:
     username: peterke
     algorithm: sha1
     salt: 9511c6e0bcd69eca1915c1dbb4abd71d
-    password: e577dfa00d894eefbc35aa6eeb122d27fc184525
+    password: 4dac8cfdcadb47b90984be5de10036f67ea1e25a
     is_active: true
     is_super_admin: false
     last_login: null

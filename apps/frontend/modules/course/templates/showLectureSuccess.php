@@ -18,13 +18,17 @@
         <?php endif; ?>
     </div>
     <div id="aid">
-        <form method="POST" action="<?php echo $sf_request->getUri() ?>" enctype="multipart/form-data">
-            <table>
-                <caption>Segédanyag feltöltése</caption>
-                <?php echo $aidForm; ?>
-            </table>
-            <input type="submit" value="Feltöltés" />
-        </form>
+        <h3>Segédanyagok</h3>
+        <ul>
+            <?php foreach($lecture->Aids as $aid) : ?>
+            <li>
+                <?php echo link_to($aid->title, $aid->getFileURL()) ?>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php if($lecture->displayAidForm() == true): ?>
+        <?php include_partial('aidForm', array('aidForm' => $aidForm)) ?>
+        <?php endif; ?>
     </div>
 </div>
 <div class="cleaner"></div>

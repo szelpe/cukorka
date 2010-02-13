@@ -17,10 +17,10 @@
             <?php foreach($lecture->Homeworks as $homework) : ?>
         <tr>
             <td>
-                        <?php echo link_to($homework->User->Profile->full_name, 'profile_view', array('id' => $homework->User->Profile->id)); ?>
+                        <?php echo link_to($homework->Uploader->Profile->full_name, 'profile_view', array('id' => $homework->Uploader->Profile->id)); ?>
             </td>
             <td>
-                        <?php echo link_to($homework->file, '/uploads/homeworks/' . $course->url . '/' . $lecture->url . '/' . $homework->User->username . '/' . $homework->file); ?>
+                        <?php echo link_to($homework->file, $homework->getFileURL()); ?>
             </td>
             <td>
                         <?php if($user && $user->isLecturer($course)): ?>

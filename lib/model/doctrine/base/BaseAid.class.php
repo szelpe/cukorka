@@ -7,39 +7,28 @@
  * 
  * @property integer $id
  * @property string $title
- * @property integer $lecture_id
- * @property integer $uploader_id
- * @property string $file
- * @property timestamp $date
  * @property Lecture $Lecture
  * @property sfGuardUser $Uploader
  * 
- * @method integer     getId()          Returns the current record's "id" value
- * @method string      getTitle()       Returns the current record's "title" value
- * @method integer     getLectureId()   Returns the current record's "lecture_id" value
- * @method integer     getUploaderId()  Returns the current record's "uploader_id" value
- * @method string      getFile()        Returns the current record's "file" value
- * @method timestamp   getDate()        Returns the current record's "date" value
- * @method Lecture     getLecture()     Returns the current record's "Lecture" value
- * @method sfGuardUser getUploader()    Returns the current record's "Uploader" value
- * @method Aid         setId()          Sets the current record's "id" value
- * @method Aid         setTitle()       Sets the current record's "title" value
- * @method Aid         setLectureId()   Sets the current record's "lecture_id" value
- * @method Aid         setUploaderId()  Sets the current record's "uploader_id" value
- * @method Aid         setFile()        Sets the current record's "file" value
- * @method Aid         setDate()        Sets the current record's "date" value
- * @method Aid         setLecture()     Sets the current record's "Lecture" value
- * @method Aid         setUploader()    Sets the current record's "Uploader" value
+ * @method integer     getId()       Returns the current record's "id" value
+ * @method string      getTitle()    Returns the current record's "title" value
+ * @method Lecture     getLecture()  Returns the current record's "Lecture" value
+ * @method sfGuardUser getUploader() Returns the current record's "Uploader" value
+ * @method Aid         setId()       Sets the current record's "id" value
+ * @method Aid         setTitle()    Sets the current record's "title" value
+ * @method Aid         setLecture()  Sets the current record's "Lecture" value
+ * @method Aid         setUploader() Sets the current record's "Uploader" value
  * 
  * @package    cukorka
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $
  */
-abstract class BaseAid extends sfDoctrineRecord
+abstract class BaseAid extends File
 {
     public function setTableDefinition()
     {
+        parent::setTableDefinition();
         $this->setTableName('aid');
         $this->hasColumn('id', 'integer', 4, array(
              'type' => 'integer',
@@ -51,26 +40,6 @@ abstract class BaseAid extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => true,
              'length' => '128',
-             ));
-        $this->hasColumn('lecture_id', 'integer', 4, array(
-             'type' => 'integer',
-             'notnull' => true,
-             'length' => '4',
-             ));
-        $this->hasColumn('uploader_id', 'integer', 4, array(
-             'type' => 'integer',
-             'notnull' => true,
-             'length' => '4',
-             ));
-        $this->hasColumn('file', 'string', 128, array(
-             'type' => 'string',
-             'notnull' => true,
-             'length' => '128',
-             ));
-        $this->hasColumn('date', 'timestamp', 25, array(
-             'type' => 'timestamp',
-             'notnull' => true,
-             'length' => '25',
              ));
     }
 

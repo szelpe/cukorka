@@ -1,5 +1,8 @@
 Aid:
   tableName: aid
+  inheritance:
+    extends: File
+    type: concrete
   columns:
     id:
       type: integer(4)
@@ -7,18 +10,6 @@ Aid:
       autoincrement: true
     title:
       type: string(128)
-      notnull: true
-    lecture_id:
-      type: integer(4)
-      notnull: true
-    uploader_id:
-      type: integer(4)
-      notnull: true
-    file:
-      type: string(128)
-      notnull: true
-    date:
-      type: timestamp(25)
       notnull: true
   relations:
     Lecture:
@@ -114,23 +105,14 @@ CourseLecturer:
       onDelete: cascade
 Homework:
   tableName: homework
+  inheritance:
+    extends: File
+    type: concrete
   columns:
     id:
       type: integer(4)
       primary: true
       autoincrement: true
-    uploader_id:
-      type: integer(4)
-      notnull: true
-    lecture_id:
-      type: integer(4)
-      notnull: true
-    file:
-      type: string(128)
-      notnull: true
-    date:
-      type: timestamp(25)
-      notnull: true
     rate:
       type: integer(4)
       notnull: false
@@ -148,7 +130,7 @@ Homework:
       foreign: id
       type: one
       foreignType: many
-      alias: User
+      alias: Uploader
       foreignAlias: Homeworks
       onDelete: cascade
 Lecture:
@@ -215,3 +197,18 @@ Profile:
       alias: User
       foreignAlias: Profile
       onDelete: cascade
+File:
+  abstract: true
+  columns:
+    uploader_id:
+      type: integer(4)
+      notnull: true
+    lecture_id:
+      type: integer(4)
+      notnull: true
+    file:
+      type: string(128)
+      notnull: true
+    date:
+      type: timestamp(25)
+      notnull: true

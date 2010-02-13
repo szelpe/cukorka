@@ -11,6 +11,35 @@
  * @version    SVN: $Id: Builder.php 6820 2009-11-30 17:27:49Z jwage $
  */
 class Homework extends BaseHomework {
+
+    public function construct() {
+        $this->type = "homework";
+    }
+
+    public static function getFilePath($course_url, $lecture_url, $username , $filename = '') {
+        return parent::getFilePath('homework', $course_url, $lecture_url, $username, $filename);
+    }
+
+    /**
+     * Empty template method to provide concrete Record classes with the possibility
+     * to hook into the saving procedure.
+     */
+    public function preSave($event)
+    {
+        //mentés előtt kitöröljük a korábban feltöltött házit
+        $homework = Doctrine_Query::create()
+                ->from('Homework')
+                ->where('uploader_id = ?', $this->uploader_id)
+                ->andWhere('lecture_id = ?', $this->lecture_id)
+                ->fetchOne();
+
+        if($homework) {
+            $filename = $homework->file;
+            $homework->delete();
+            @unlink($this->getMyFilePath($this->type, $filename));
+        }
+    }
+
     /**
      *
      * @param sfGuardUser $User

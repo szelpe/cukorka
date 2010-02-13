@@ -33,4 +33,15 @@ class Lecture extends BaseLecture {
 
         return $this->getUser()->isStudent($this->Course);
     }
+
+    /**
+     *
+     * @return boolean wheter the user lecturers a course
+     */
+    public function displayAidForm() {
+        if(!$this->getUser())
+            return false;
+
+        return $this->getUser()->isLecturer($this->Course);
+    }
 }

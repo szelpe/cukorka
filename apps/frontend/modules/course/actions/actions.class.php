@@ -20,9 +20,9 @@ class courseActions extends sfActions {
     }
     /**
      *
-     * @var HomeworkForm
+     * @var array
      */
-    var $homeworkForm;
+    var $forms;
     
     /**
      *
@@ -53,31 +53,38 @@ class courseActions extends sfActions {
      * @var sfGuardUser
      */
     var $user;
-    
+
     /**
-     * Executes index action
+     * Executes listLectures action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeListLectures(sfWebRequest $request) {
+        $this->course = $this->getRoute()->getObject();
+        $this->setVar('course', $this->course);
+    }
+
+    /**
+     * Executes showLecture action
      *
      * @param sfRequest $request A request object
      */
     public function executeShowLecture(sfWebRequest $request) {
         $this->lecture = $this->getRoute()->getObject();
         $this->course = $this->lecture->Course;
-        $this->homeworkForm = new HomeworkForm();
-        $this->aidForm = new AidForm();
+        $this->forms['homework'] = new HomeworkForm();
+        $this->forms['aid'] = new AidForm();
         
         
         if($request->isMethod('POST')) {
-            if($request->getPostParameter('aid')) {
-                $this->executeUploadAid($request);
-            } else if($request->getPostParameter('homework')) {
-                $this->executeUploadHomework($request);
-            }
+            $types = array_keys($request->getPostParameters());
+            $this->executeUploadFile($request, $types[0]);
         }
         
         $this->setVar('lecture', $this->lecture);
         $this->setVar('course', $this->course);
-        $this->setVar('form', $this->homeworkForm);
-        $this->setVar('aidForm', $this->aidForm);
+        $this->setVar('form', $this->forms['homework']);
+        $this->setVar('aidForm', $this->forms['aid']);
         $this->setVar('user', $this->user);
         
         if($this->user && $this->user->isLecturer($this->course)) {
@@ -85,10 +92,7 @@ class courseActions extends sfActions {
         }
     }
     
-    public function executeListLectures(sfWebRequest $request) {
-        $this->course = $this->getRoute()->getObject();
-        $this->setVar('course', $this->course);
-    }
+    
     
     /**
      *
@@ -102,80 +106,29 @@ class courseActions extends sfActions {
         );
     }
     
-    public function executeUploadHomework(sfWebRequest $request) {
+    public function executeUploadFile(sfWebRequest $request, $type) {
         $this->forward404Unless($request->isMethod('POST'));
 
-        $dest = $this->getHomeworkPath();
-        $this->homeworkForm->getValidator('file')->setOption('path', $dest);
+        $dest = File::getFilePath($type, $this->course->url, $this->lecture->url, $this->user->username);
+        $this->forms[$type]->getValidator('file')->setOption('path', $dest);
         
-        $this->homeworkForm->bind($request->getParameter('homework'), $request->getFiles('homework'));
+        $this->forms[$type]->bind($request->getParameter($type), $request->getFiles($type));
         
-        if($this->homeworkForm->isValid()) {
+        if($this->forms[$type]->isValid()) {
             
+            $this->forms[$type]->updateObject($this->getObjectData());
+            $this->forms[$type]->save();
             
-            //kitöröljük az előzőekben feltöltött házifeladatot
-            $this->deletePrevUploadedHomework();
-            
-            $this->homeworkForm->updateObject($this->getObjectData());
-            $this->homeworkForm->save();
-            
-            $this->getUser()->setFlash('message', 'Sikeresen feltöltötted a házifeladatodat!');
+            $this->getUser()->setFlash('message', 'Sikeresen feltöltötted a !' . $type);
             $this->redirect($request->getUri());
         }
     }
-    
-    public function executeUploadAid(sfWebRequest $request) {
-        $this->forward404Unless($request->isMethod('POST'));
-        
-        $dest = $this->getHomeworkPath('aids', '');
-        $this->aidForm->getValidator('file')->setOption('path', $dest);
-        
-        $this->aidForm->bind($request->getPostParameter('aid'), $request->getFiles('aid'));
-        
-        if($this->aidForm->isValid()) {
-            $this->aidForm->updateObject($this->getObjectData());
-            $this->aidForm->save();
-            
-            $this->getUser()->setFlash('message', 'Sikeresen feltöltötted a segédanyagot!');
-            $this->redirect($request->getUri());
-        }        
-    }
-    
-    protected function deletePrevUploadedHomework() {
-        
-        $this->homework = Doctrine_Query::create()
-                ->from('Homework')
-                ->where('uploader_id = ?', $this->user->id)
-                ->andWhere('lecture_id = ?', $this->lecture->id)
-                ->fetchOne();
-        
-        if($this->homework) {
-            $filename = $this->homework->file;
-            $this->homework->delete();
-            @unlink($this->getHomeworkPath($filename));
-        }
-        
-        
-    }
-    
+
     /**
-     * Returns the full path to the file
+     * Executes ajaxRateHomework action
      *
-     * @param string $filename
-     * @return string
+     * @param sfRequest $request A request object
      */
-    protected function getHomeworkPath($folder = 'homeworks', $filename = '') {
-        $uploadDir = sfFinder::type('directory')
-                ->name('uploads')
-                ->in(dirname(__FILE__) . '/../../../../../web');
-        
-        return $uploadDir[0] . '/' . $folder . '/'
-                . $this->course->url . '/'
-                . $this->lecture->url . '/'
-                . $this->user->username . '/'
-                . $filename;
-    }
-    
     public function executeAjaxRateHomework(sfWebRequest $request) {
         $this->forward404Unless($request->isXmlHttpRequest());
         $this->forward404Unless($request->isMethod('POST'));

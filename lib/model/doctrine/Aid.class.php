@@ -12,5 +12,11 @@
  */
 class Aid extends BaseAid
 {
+    public function construct() {
+        $this->type = "aid";
+    }
 
+    public static function getFilePath($course_url, $lecture_url, $username , $filename = '') {
+        return parent::getFilePath('aid', $course_url, $lecture_url, $username, $filename);
+    }
 }
