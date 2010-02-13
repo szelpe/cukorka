@@ -2,72 +2,50 @@ Course:
   Course_1:
     url: Webteam_alapcsomag
     title: 'Webteam alapcsomag'
-    description: 'Alapozó webfejlesztés, teljesen kezdők számára kidolgozva'
-  Course_8:
+    description: 'Alapozó tanfolyam teljesen kezdőknek'
+  Course_2:
     url: ASPNET_tanfolyam
     title: 'ASP.NET tanfolyam'
-    description: 'Kezdő ASP.NET tanfolyam, minden érdeklődőnek'
+    description: 'ASP.NET tanfolyam'
 CourseLecturer:
   CourseLecturer_1_1:
     Course: Course_1
     sfGuardUser: sfGuardUser_1
-  CourseLecturer_1_2:
-    Course: Course_1
+  CourseLecturer_2_2:
+    Course: Course_2
     sfGuardUser: sfGuardUser_2
-  CourseLecturer_8_6:
-    Course: Course_8
-    sfGuardUser: sfGuardUser_6
 CourseStudent:
-  CourseStudent_8_1:
-    Course: Course_8
+  CourseStudent_2_1:
+    Course: Course_2
     sfGuardUser: sfGuardUser_1
   CourseStudent_1_2:
     Course: Course_1
     sfGuardUser: sfGuardUser_2
-Homework:
-  Homework_1:
-    User: sfGuardUser_2
-    Lecture: Lecture_1
-    filename: dragi_blog.rar
-    date: '2010-02-01 01:30:44'
-    rate: '9'
-  Homework_3:
-    User: sfGuardUser_1
-    Lecture: Lecture_1
-    filename: dragonfly.rar
-    date: '2010-02-01 10:13:24'
-    rate: '8'
-  Homework_18:
-    User: sfGuardUser_1
-    Lecture: Lecture_5
-    filename: dragi_blog.rar
-    date: '2010-02-12 02:28:36'
-    rate: null
+  CourseStudent_1_3:
+    Course: Course_1
+    sfGuardUser: sfGuardUser_3
 Lecture:
   Lecture_1:
-    url: korte
+    url: Bevezeto
     Course: Course_1
-    title: korte
-    description: korte
-    homeworktask: korte
+    title: Bevezető
+    description: 'Alma körte'
+    homeworktask: 'Csinálj házit!'
+    displayHomeworkForm: true
   Lecture_2:
-    url: pina
-    Course: Course_1
-    title: pina
-    description: pina
-    homeworktask: pina
-  Lecture_4:
-    url: uj_almok_megvalositasa
-    Course: Course_1
-    title: 'új álmok megvalósítása'
-    description: 'hajjaj de jó lesz :)'
-    homeworktask: feladat
-  Lecture_5:
     url: 1_eloadas
-    Course: Course_8
+    Course: Course_2
     title: '1. előadás'
-    description: 'Ismerkedés a .NET keretrendszerrel'
-    homeworktask: 'Írjál egy modult'
+    description: leírás
+    homeworktask: nincs
+    displayHomeworkForm: false
+  Lecture_3:
+    url: asdasd
+    Course: Course_2
+    title: asdasd
+    description: asdads
+    homeworktask: asdads
+    displayHomeworkForm: true
 Profile:
   Profile_1:
     User: sfGuardUser_1
@@ -76,47 +54,47 @@ Profile:
   Profile_2:
     User: sfGuardUser_2
     full_name: 'Bornemissza Péter'
-    email: faszom@jakab.hu
-  Profile_6:
-    User: sfGuardUser_6
-    full_name: asd
-    email: asd@asd.hu
+    email: p@p.hu
+  Profile_3:
+    User: sfGuardUser_3
+    full_name: alma
+    email: korte@korte.hu
 sfGuardRememberKey:
-  sfGuardRememberKey_8_127.0.0.1:
-    id: '8'
+  sfGuardRememberKey_1_127.0.0.1:
+    id: '1'
     sfGuardUser: sfGuardUser_1
-    remember_key: f6f829ee414baf291c6111efd78b892c
+    remember_key: 3ea58f183ef5e24f0199defd87b7ead1
     ip_address: 127.0.0.1
-    created_at: '2010-02-01 22:45:22'
-    updated_at: '2010-02-01 22:45:22'
+    created_at: '2010-02-12 23:31:09'
+    updated_at: '2010-02-12 23:31:09'
 sfGuardUser:
   sfGuardUser_1:
     username: szelpe
     algorithm: sha1
-    salt: 89eadbe5a7214b3be085962bb9895f65
-    password: 5cf764409e5c8cce1e14967cf4649b5dc06a8e86
+    salt: 8406c7a9520aa7adb86c418603ec0189
+    password: 830f0537f33150608b64a2adb32d268c1c1e40e7
     is_active: true
-    is_super_admin: false
-    last_login: '2010-02-12 02:10:55'
-    created_at: '2009-12-02 21:57:50'
-    updated_at: '2010-02-12 02:10:55'
+    is_super_admin: true
+    last_login: '2010-02-12 23:31:09'
+    created_at: '2010-02-12 23:30:21'
+    updated_at: '2010-02-12 23:31:09'
   sfGuardUser_2:
     username: peter
     algorithm: sha1
-    salt: 0351861e46f44bfb4d98b4785686271c
-    password: 2e4ade629b8d8d4c52aac9c2be889af8ff65bf1f
+    salt: a409fbb2f586a685b5981e894d04c191
+    password: e08c7c384f29a839d22fda52e9a565c6f4cc0652
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '2009-12-02 23:54:23'
-    updated_at: '2009-12-03 02:46:00'
-  sfGuardUser_6:
-    username: petike
+    created_at: '2010-02-12 23:31:43'
+    updated_at: '2010-02-12 23:31:43'
+  sfGuardUser_3:
+    username: peterke
     algorithm: sha1
-    salt: 89eadbe5a7214b3be085962bb9895f65
-    password: 5cf764409e5c8cce1e14967cf4649b5dc06a8e86
+    salt: 9511c6e0bcd69eca1915c1dbb4abd71d
+    password: e577dfa00d894eefbc35aa6eeb122d27fc184525
     is_active: true
     is_super_admin: false
-    last_login: '2010-02-01 20:20:57'
-    created_at: '2010-02-01 20:20:42'
-    updated_at: '2010-02-01 20:20:57'
+    last_login: null
+    created_at: '2010-02-12 23:31:47'
+    updated_at: '2010-02-12 23:31:47'

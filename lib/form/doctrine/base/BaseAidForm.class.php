@@ -16,7 +16,8 @@ abstract class BaseAidForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
-      'course_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Course'), 'add_empty' => false)),
+      'title'       => new sfWidgetFormInputText(),
+      'lecture_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Lecture'), 'add_empty' => false)),
       'uploader_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Uploader'), 'add_empty' => false)),
       'file'        => new sfWidgetFormInputText(),
       'date'        => new sfWidgetFormDateTime(),
@@ -24,7 +25,8 @@ abstract class BaseAidForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'course_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Course'))),
+      'title'       => new sfValidatorString(array('max_length' => 128)),
+      'lecture_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Lecture'))),
       'uploader_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Uploader'))),
       'file'        => new sfValidatorString(array('max_length' => 128)),
       'date'        => new sfValidatorDateTime(),

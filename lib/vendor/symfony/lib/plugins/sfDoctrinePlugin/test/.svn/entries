@@ -1,0 +1,40 @@
+10
+
+dir
+27934
+http://svn.symfony-project.com/branches/1.4/lib/plugins/sfDoctrinePlugin/test
+http://svn.symfony-project.com
+
+
+
+2010-02-11T18:12:56.431500Z
+27915
+Kris.Wallsmith
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ee427ae8-e902-0410-961c-c3ed070cd9f9
+
+unit
+dir
+
+functional
+dir
+
+bin
+dir
+
+bootstrap
+dir
+

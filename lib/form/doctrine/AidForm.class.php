@@ -12,7 +12,14 @@ class AidForm extends BaseAidForm
 {
   public function configure()
   {
-      $this->useFields(array('file'));
-      $this->widgetSchema['file'] = new sfWidgetFormInputFileEditable();
+      $this->useFields(array('title', 'file'));
+      $this->widgetSchema['file'] = new sfWidgetFormInputFile(array(
+          'label' => ' '
+      ));
+
+      $this->validatorSchema['file'] = new sfValidatorFile(array(
+          'max_size' => '200000',
+          'validated_file_class' => 'myValidatedFile'
+      ));
   }
 }

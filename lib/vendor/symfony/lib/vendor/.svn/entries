@@ -1,0 +1,31 @@
+10
+
+dir
+27934
+http://svn.symfony-project.com/branches/1.4/lib/vendor
+http://svn.symfony-project.com
+
+
+
+2009-11-16T18:41:59.479637Z
+24049
+FabianLange
+has-props
+
+
+svn:externals
+
+
+
+
+
+
+
+
+
+
+ee427ae8-e902-0410-961c-c3ed070cd9f9
+
+swiftmailer
+dir
+

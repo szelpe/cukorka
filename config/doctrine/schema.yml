@@ -5,7 +5,10 @@ Aid:
       type: integer(4)
       primary: true
       autoincrement: true
-    course_id:
+    title:
+      type: string(128)
+      notnull: true
+    lecture_id:
       type: integer(4)
       notnull: true
     uploader_id:
@@ -18,8 +21,8 @@ Aid:
       type: timestamp(25)
       notnull: true
   relations:
-    Course:
-      local: course_id
+    Lecture:
+      local: lecture_id
       foreign: id
       type: one
       foreignType: many
@@ -47,15 +50,9 @@ Course:
       type: string(128)
       notnull: true
     description:
-      type: string(2147483647)
+      type: text
       notnull: true
   relations:
-    Aid:
-      local: id
-      foreign: course_id
-      type: many
-      foreignType: one
-      alias: Aids
     Students:
       class: sfGuardUser
       refClass: CourseStudent
@@ -122,13 +119,13 @@ Homework:
       type: integer(4)
       primary: true
       autoincrement: true
-    user_id:
+    uploader_id:
       type: integer(4)
       notnull: true
     lecture_id:
       type: integer(4)
       notnull: true
-    filename:
+    file:
       type: string(128)
       notnull: true
     date:
@@ -147,7 +144,7 @@ Homework:
       foreignAlias: Homeworks
       onDelete: cascade
     sfGuardUser:
-      local: user_id
+      local: uploader_id
       foreign: id
       type: one
       foreignType: many
@@ -176,9 +173,15 @@ Lecture:
       notnull: true
     homeworktask:
       type: text
-    hasHomeworkUploadField:
-      type: bool
+    displayHomeworkForm:
+      type: boolean
   relations:
+    Aid:
+      local: id
+      foreign: lecture_id
+      type: many
+      foreignType: one
+      alias: Aids
     Course:
       local: course_id
       foreign: id

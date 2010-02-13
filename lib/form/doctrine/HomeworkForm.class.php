@@ -12,16 +12,16 @@ class HomeworkForm extends BaseHomeworkForm
 {
   public function configure()
   {
-      $this->widgetSchema['filename'] = new sfWidgetFormInputFile(array(
+      $this->widgetSchema['file'] = new sfWidgetFormInputFile(array(
           'label' => ' '
       ));
       
-      $this->validatorSchema['filename'] = new sfValidatorFile(array(
+      $this->validatorSchema['file'] = new sfValidatorFile(array(
           'max_size' => '200000',
           'mime_types' => array('application/zip', 'application/x-tar-gz', 'application/x-rar-compressed'),
           'validated_file_class' => 'myValidatedFile'
       ));
 
-      $this->useFields(array('filename'));
+      $this->useFields(array('file'));
   }
 }

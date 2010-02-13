@@ -70,7 +70,7 @@
  * @package    cukorka
  * @subpackage model
  * @author     Your name here
- * @version    SVN: $Id: Builder.php 6820 2009-11-30 17:27:49Z jwage $
+ * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $
  */
 abstract class BasesfGuardUser extends sfDoctrineRecord
 {
@@ -173,7 +173,7 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
 
         $this->hasMany('Homework as Homeworks', array(
              'local' => 'id',
-             'foreign' => 'user_id'));
+             'foreign' => 'uploader_id'));
 
         $this->hasOne('Profile', array(
              'local' => 'id',

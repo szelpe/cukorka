@@ -11,33 +11,36 @@
  * @property string $title
  * @property text $description
  * @property text $homeworktask
- * @property bool $hasHomeworkUploadField
+ * @property boolean $displayHomeworkForm
+ * @property Doctrine_Collection $Aids
  * @property Course $Course
  * @property Doctrine_Collection $Homeworks
  * 
- * @method integer             getId()                     Returns the current record's "id" value
- * @method string              getUrl()                    Returns the current record's "url" value
- * @method integer             getCourseId()               Returns the current record's "course_id" value
- * @method string              getTitle()                  Returns the current record's "title" value
- * @method text                getDescription()            Returns the current record's "description" value
- * @method text                getHomeworktask()           Returns the current record's "homeworktask" value
- * @method bool                getHasHomeworkUploadField() Returns the current record's "hasHomeworkUploadField" value
- * @method Course              getCourse()                 Returns the current record's "Course" value
- * @method Doctrine_Collection getHomeworks()              Returns the current record's "Homeworks" collection
- * @method Lecture             setId()                     Sets the current record's "id" value
- * @method Lecture             setUrl()                    Sets the current record's "url" value
- * @method Lecture             setCourseId()               Sets the current record's "course_id" value
- * @method Lecture             setTitle()                  Sets the current record's "title" value
- * @method Lecture             setDescription()            Sets the current record's "description" value
- * @method Lecture             setHomeworktask()           Sets the current record's "homeworktask" value
- * @method Lecture             setHasHomeworkUploadField() Sets the current record's "hasHomeworkUploadField" value
- * @method Lecture             setCourse()                 Sets the current record's "Course" value
- * @method Lecture             setHomeworks()              Sets the current record's "Homeworks" collection
+ * @method integer             getId()                  Returns the current record's "id" value
+ * @method string              getUrl()                 Returns the current record's "url" value
+ * @method integer             getCourseId()            Returns the current record's "course_id" value
+ * @method string              getTitle()               Returns the current record's "title" value
+ * @method text                getDescription()         Returns the current record's "description" value
+ * @method text                getHomeworktask()        Returns the current record's "homeworktask" value
+ * @method boolean             getDisplayHomeworkForm() Returns the current record's "displayHomeworkForm" value
+ * @method Doctrine_Collection getAids()                Returns the current record's "Aids" collection
+ * @method Course              getCourse()              Returns the current record's "Course" value
+ * @method Doctrine_Collection getHomeworks()           Returns the current record's "Homeworks" collection
+ * @method Lecture             setId()                  Sets the current record's "id" value
+ * @method Lecture             setUrl()                 Sets the current record's "url" value
+ * @method Lecture             setCourseId()            Sets the current record's "course_id" value
+ * @method Lecture             setTitle()               Sets the current record's "title" value
+ * @method Lecture             setDescription()         Sets the current record's "description" value
+ * @method Lecture             setHomeworktask()        Sets the current record's "homeworktask" value
+ * @method Lecture             setDisplayHomeworkForm() Sets the current record's "displayHomeworkForm" value
+ * @method Lecture             setAids()                Sets the current record's "Aids" collection
+ * @method Lecture             setCourse()              Sets the current record's "Course" value
+ * @method Lecture             setHomeworks()           Sets the current record's "Homeworks" collection
  * 
  * @package    cukorka
  * @subpackage model
  * @author     Your name here
- * @version    SVN: $Id: Builder.php 6820 2009-11-30 17:27:49Z jwage $
+ * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $
  */
 abstract class BaseLecture extends sfDoctrineRecord
 {
@@ -73,14 +76,18 @@ abstract class BaseLecture extends sfDoctrineRecord
         $this->hasColumn('homeworktask', 'text', null, array(
              'type' => 'text',
              ));
-        $this->hasColumn('hasHomeworkUploadField', 'bool', null, array(
-             'type' => 'bool',
+        $this->hasColumn('displayHomeworkForm', 'boolean', null, array(
+             'type' => 'boolean',
              ));
     }
 
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('Aid as Aids', array(
+             'local' => 'id',
+             'foreign' => 'lecture_id'));
+
         $this->hasOne('Course', array(
              'local' => 'course_id',
              'foreign' => 'id',

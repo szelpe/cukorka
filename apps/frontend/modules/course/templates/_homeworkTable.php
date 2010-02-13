@@ -20,7 +20,7 @@
                         <?php echo link_to($homework->User->Profile->full_name, 'profile_view', array('id' => $homework->User->Profile->id)); ?>
             </td>
             <td>
-                        <?php echo link_to($homework->filename, '/uploads/homeworks/' . $course->url . '/' . $lecture->url . '/' . $homework->User->username . '/' . $homework->filename); ?>
+                        <?php echo link_to($homework->file, '/uploads/homeworks/' . $course->url . '/' . $lecture->url . '/' . $homework->User->username . '/' . $homework->file); ?>
             </td>
             <td>
                         <?php if($user && $user->isLecturer($course)): ?>

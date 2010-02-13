@@ -8,8 +8,7 @@
  * @property integer $id
  * @property string $url
  * @property string $title
- * @property string $description
- * @property Doctrine_Collection $Aids
+ * @property text $description
  * @property Doctrine_Collection $Students
  * @property Doctrine_Collection $Lecturers
  * @property Doctrine_Collection $Lectures
@@ -19,8 +18,7 @@
  * @method integer             getId()             Returns the current record's "id" value
  * @method string              getUrl()            Returns the current record's "url" value
  * @method string              getTitle()          Returns the current record's "title" value
- * @method string              getDescription()    Returns the current record's "description" value
- * @method Doctrine_Collection getAids()           Returns the current record's "Aids" collection
+ * @method text                getDescription()    Returns the current record's "description" value
  * @method Doctrine_Collection getStudents()       Returns the current record's "Students" collection
  * @method Doctrine_Collection getLecturers()      Returns the current record's "Lecturers" collection
  * @method Doctrine_Collection getLectures()       Returns the current record's "Lectures" collection
@@ -30,7 +28,6 @@
  * @method Course              setUrl()            Sets the current record's "url" value
  * @method Course              setTitle()          Sets the current record's "title" value
  * @method Course              setDescription()    Sets the current record's "description" value
- * @method Course              setAids()           Sets the current record's "Aids" collection
  * @method Course              setStudents()       Sets the current record's "Students" collection
  * @method Course              setLecturers()      Sets the current record's "Lecturers" collection
  * @method Course              setLectures()       Sets the current record's "Lectures" collection
@@ -40,7 +37,7 @@
  * @package    cukorka
  * @subpackage model
  * @author     Your name here
- * @version    SVN: $Id: Builder.php 6820 2009-11-30 17:27:49Z jwage $
+ * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $
  */
 abstract class BaseCourse extends sfDoctrineRecord
 {
@@ -64,20 +61,15 @@ abstract class BaseCourse extends sfDoctrineRecord
              'notnull' => true,
              'length' => '128',
              ));
-        $this->hasColumn('description', 'string', 2147483647, array(
-             'type' => 'string',
+        $this->hasColumn('description', 'text', null, array(
+             'type' => 'text',
              'notnull' => true,
-             'length' => '2147483647',
              ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Aid as Aids', array(
-             'local' => 'id',
-             'foreign' => 'course_id'));
-
         $this->hasMany('sfGuardUser as Students', array(
              'refClass' => 'CourseStudent',
              'local' => 'course_id',

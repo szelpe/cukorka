@@ -20,7 +20,7 @@ class Homework extends BaseHomework {
     public function hasUserHomework($User, $Lecture) {
         $count = Doctrine_Query::create()
                 ->from('homework')
-                ->where('user_id = ?' , $User->id)
+                ->where('uploader_id = ?' , $User->id)
                 ->andWhere('id = ?' , $this->id)
                 ->andWhere('lecture_id = ?' , $Lecture->id)
                 ->count();

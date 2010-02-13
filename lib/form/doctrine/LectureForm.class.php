@@ -13,10 +13,12 @@ require_once dirname(__FILE__) . '/../../../apps/backend/lib/transliteration.php
 class LectureForm extends BaseLectureForm {
     public function configure() {
         $this->widgetSchema['url'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['displayHomeworkForm'] = new sfWidgetFormInputCheckbox();
     }
 
     public function bind(array $taintedValues = null, array $taintedFiles = null) {
         $taintedValues['url'] = transliteration_clean_filename($taintedValues['title'], 'hun');
+        $taintedValues['displayHomeworkForm'] = isset($taintedValues['displayHomeworkForm']);
         parent::bind($taintedValues, $taintedFiles);
     }
 }

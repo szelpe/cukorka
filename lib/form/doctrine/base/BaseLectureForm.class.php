@@ -15,23 +15,23 @@ abstract class BaseLectureForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                     => new sfWidgetFormInputHidden(),
-      'url'                    => new sfWidgetFormInputText(),
-      'course_id'              => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Course'), 'add_empty' => false)),
-      'title'                  => new sfWidgetFormInputText(),
-      'description'            => new sfWidgetFormInputText(),
-      'homeworktask'           => new sfWidgetFormInputText(),
-      'hasHomeworkUploadField' => new sfWidgetFormInputText(),
+      'id'                  => new sfWidgetFormInputHidden(),
+      'url'                 => new sfWidgetFormInputText(),
+      'course_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Course'), 'add_empty' => false)),
+      'title'               => new sfWidgetFormInputText(),
+      'description'         => new sfWidgetFormInputText(),
+      'homeworktask'        => new sfWidgetFormInputText(),
+      'displayHomeworkForm' => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
-      'id'                     => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'url'                    => new sfValidatorString(array('max_length' => 128)),
-      'course_id'              => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Course'))),
-      'title'                  => new sfValidatorString(array('max_length' => 128)),
-      'description'            => new sfValidatorPass(),
-      'homeworktask'           => new sfValidatorPass(array('required' => false)),
-      'hasHomeworkUploadField' => new sfValidatorPass(array('required' => false)),
+      'id'                  => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'url'                 => new sfValidatorString(array('max_length' => 128)),
+      'course_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Course'))),
+      'title'               => new sfValidatorString(array('max_length' => 128)),
+      'description'         => new sfValidatorPass(),
+      'homeworktask'        => new sfValidatorPass(array('required' => false)),
+      'displayHomeworkForm' => new sfValidatorBoolean(array('required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

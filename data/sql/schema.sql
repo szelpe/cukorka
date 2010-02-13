@@ -1,9 +1,9 @@
-CREATE TABLE aid (id INT AUTO_INCREMENT, course_id INT NOT NULL, uploader_id INT NOT NULL, file VARCHAR(128) NOT NULL, date DATETIME NOT NULL, INDEX course_id_idx (course_id), INDEX uploader_id_idx (uploader_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE course (id INT AUTO_INCREMENT, url VARCHAR(128) NOT NULL UNIQUE, title VARCHAR(128) NOT NULL, description TEXT NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE aid (id INT AUTO_INCREMENT, title VARCHAR(128) NOT NULL, lecture_id INT NOT NULL, uploader_id INT NOT NULL, file VARCHAR(128) NOT NULL, date DATETIME NOT NULL, INDEX lecture_id_idx (lecture_id), INDEX uploader_id_idx (uploader_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE course (id INT AUTO_INCREMENT, url VARCHAR(128) NOT NULL UNIQUE, title VARCHAR(128) NOT NULL, description text NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE course_lecturer (course_id INT, lecturer_id INT, PRIMARY KEY(course_id, lecturer_id)) ENGINE = INNODB;
 CREATE TABLE course_student (course_id INT, student_id INT, PRIMARY KEY(course_id, student_id)) ENGINE = INNODB;
-CREATE TABLE homework (id INT AUTO_INCREMENT, user_id INT NOT NULL, lecture_id INT NOT NULL, filename VARCHAR(128) NOT NULL, date DATETIME NOT NULL, rate INT, INDEX lecture_id_idx (lecture_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE lecture (id INT AUTO_INCREMENT, url VARCHAR(128) NOT NULL UNIQUE, course_id INT NOT NULL, title VARCHAR(128) NOT NULL, description text NOT NULL, homeworktask text, hashomeworkuploadfield bool, INDEX course_id_idx (course_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE homework (id INT AUTO_INCREMENT, uploader_id INT NOT NULL, lecture_id INT NOT NULL, file VARCHAR(128) NOT NULL, date DATETIME NOT NULL, rate INT, INDEX lecture_id_idx (lecture_id), INDEX uploader_id_idx (uploader_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE lecture (id INT AUTO_INCREMENT, url VARCHAR(128) NOT NULL UNIQUE, course_id INT NOT NULL, title VARCHAR(128) NOT NULL, description text NOT NULL, homeworktask text, displayhomeworkform TINYINT(1), INDEX course_id_idx (course_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE profile (id INT AUTO_INCREMENT, user_id INT NOT NULL, full_name VARCHAR(128) NOT NULL, email VARCHAR(128) NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group (id INT AUTO_INCREMENT, name VARCHAR(255) UNIQUE, description TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group_permission (group_id INT, permission_id INT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(group_id, permission_id)) ENGINE = INNODB;
@@ -13,12 +13,12 @@ CREATE TABLE sf_guard_user (id INT AUTO_INCREMENT, username VARCHAR(128) NOT NUL
 CREATE TABLE sf_guard_user_group (user_id INT, group_id INT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, group_id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_user_permission (user_id INT, permission_id INT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, permission_id)) ENGINE = INNODB;
 ALTER TABLE aid ADD CONSTRAINT aid_uploader_id_sf_guard_user_id FOREIGN KEY (uploader_id) REFERENCES sf_guard_user(id);
-ALTER TABLE aid ADD CONSTRAINT aid_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
+ALTER TABLE aid ADD CONSTRAINT aid_lecture_id_lecture_id FOREIGN KEY (lecture_id) REFERENCES lecture(id) ON DELETE CASCADE;
 ALTER TABLE course_lecturer ADD CONSTRAINT course_lecturer_lecturer_id_sf_guard_user_id FOREIGN KEY (lecturer_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE course_lecturer ADD CONSTRAINT course_lecturer_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
 ALTER TABLE course_student ADD CONSTRAINT course_student_student_id_sf_guard_user_id FOREIGN KEY (student_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE course_student ADD CONSTRAINT course_student_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
-ALTER TABLE homework ADD CONSTRAINT homework_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
+ALTER TABLE homework ADD CONSTRAINT homework_uploader_id_sf_guard_user_id FOREIGN KEY (uploader_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE homework ADD CONSTRAINT homework_lecture_id_lecture_id FOREIGN KEY (lecture_id) REFERENCES lecture(id) ON DELETE CASCADE;
 ALTER TABLE lecture ADD CONSTRAINT lecture_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
 ALTER TABLE profile ADD CONSTRAINT profile_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;

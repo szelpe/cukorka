@@ -1,0 +1,86 @@
+10
+
+dir
+27934
+http://svn.symfony-project.com/branches/1.4/lib/plugins/sfDoctrinePlugin/test/functional/fixtures
+http://svn.symfony-project.com
+
+
+
+2010-02-08T15:46:35.227110Z
+27742
+Kris.Wallsmith
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ee427ae8-e902-0410-961c-c3ed070cd9f9
+
+test
+dir
+
+log
+dir
+
+plugins
+dir
+
+apps
+dir
+
+cache
+dir
+
+symfony
+file
+
+
+
+
+2010-02-12T03:00:48.574443Z
+36073c1914105fb3bbb4f1ce4965b4d2
+2008-10-05T07:45:47.521090Z
+11948
+Jonathan.Wage
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+482
+
+config
+dir
+
+lib
+dir
+
+data
+dir
+
