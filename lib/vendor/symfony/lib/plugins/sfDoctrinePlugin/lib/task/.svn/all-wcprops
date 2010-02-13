@@ -1,19 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/!svn/ver/24970/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task
+/!svn/ver/27942/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task
 END
 sfDoctrineInsertSqlTask.class.php
 K 25
 svn:wc:ra_dav:version-url
 V 100
-/!svn/ver/23922/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineInsertSqlTask.class.php
-END
-sfDoctrineCleanModelFilesTask.class.php
-K 25
-svn:wc:ra_dav:version-url
-V 106
-/!svn/ver/23881/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineCleanModelFilesTask.class.php
+/!svn/ver/27942/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineInsertSqlTask.class.php
 END
 sfDoctrineGenerateModuleForRouteTask.class.php
 K 25
@@ -21,17 +15,23 @@ svn:wc:ra_dav:version-url
 V 113
 /!svn/ver/23881/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineGenerateModuleForRouteTask.class.php
 END
-sfDoctrineBuildFiltersTask.class.php
+sfDoctrineCleanModelFilesTask.class.php
 K 25
 svn:wc:ra_dav:version-url
-V 103
-/!svn/ver/23927/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineBuildFiltersTask.class.php
+V 106
+/!svn/ver/23881/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineCleanModelFilesTask.class.php
 END
 sfDoctrineMigrateTask.class.php
 K 25
 svn:wc:ra_dav:version-url
 V 98
 /!svn/ver/23922/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineMigrateTask.class.php
+END
+sfDoctrineBuildFiltersTask.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/23927/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineBuildFiltersTask.class.php
 END
 sfDoctrineGenerateMigrationsModelsTask.class.php
 K 25
@@ -45,17 +45,17 @@ svn:wc:ra_dav:version-url
 V 111
 /!svn/ver/23922/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineGenerateMigrationsDbTask.class.php
 END
-sfDoctrineDataDumpTask.class.php
-K 25
-svn:wc:ra_dav:version-url
-V 99
-/!svn/ver/23922/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineDataDumpTask.class.php
-END
 sfDoctrineBuildTask.class.php
 K 25
 svn:wc:ra_dav:version-url
 V 96
 /!svn/ver/23881/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineBuildTask.class.php
+END
+sfDoctrineDataDumpTask.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/23922/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineDataDumpTask.class.php
 END
 sfDoctrineGenerateModuleTask.class.php
 K 25
@@ -81,17 +81,17 @@ svn:wc:ra_dav:version-url
 V 98
 /!svn/ver/24341/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineBuildDbTask.class.php
 END
-sfDoctrineDeleteModelFilesTask.class.php
-K 25
-svn:wc:ra_dav:version-url
-V 107
-/!svn/ver/23922/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineDeleteModelFilesTask.class.php
-END
 sfDoctrineConfigureDatabaseTask.class.php
 K 25
 svn:wc:ra_dav:version-url
 V 108
 /!svn/ver/23881/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineConfigureDatabaseTask.class.php
+END
+sfDoctrineDeleteModelFilesTask.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/23922/branches/1.4/lib/plugins/sfDoctrinePlugin/lib/task/sfDoctrineDeleteModelFilesTask.class.php
 END
 sfDoctrineBuildFormsTask.class.php
 K 25

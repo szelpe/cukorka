@@ -1,7 +1,7 @@
 10
 
 dir
-27934
+28000
 http://svn.symfony-project.com/branches/1.4/lib/widget
 http://svn.symfony-project.com
 
@@ -26,39 +26,8 @@ Kris.Wallsmith
 
 ee427ae8-e902-0410-961c-c3ed070cd9f9
 
-sfWidgetFormInputText.class.php
-file
-
-
-
-
-2010-02-12T02:59:29.645929Z
-007d5c28935e5829d8ed7506eff293e9
-2009-08-08T14:11:51.348239Z
-20941
-Kris.Wallsmith
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-921
+i18n
+dir
 
 sfWidgetFormSelectMany.class.php
 file
@@ -94,8 +63,39 @@ has-props
 
 965
 
-i18n
-dir
+sfWidgetFormInputText.class.php
+file
+
+
+
+
+2010-02-12T02:59:29.645929Z
+007d5c28935e5829d8ed7506eff293e9
+2009-08-08T14:11:51.348239Z
+20941
+Kris.Wallsmith
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+921
 
 sfWidgetFormFilterInput.class.php
 file
@@ -199,40 +199,6 @@ has-props
 
 976
 
-sfWidgetFormDate.class.php
-file
-
-
-
-
-2010-02-12T02:59:29.803938Z
-ee27556b31d555b144836e4b1071df4b
-2009-11-30T21:20:19.002184Z
-24605
-FabianLange
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4905
-
 sfWidgetFormTextarea.class.php
 file
 
@@ -267,17 +233,17 @@ has-props
 
 1495
 
-sfWidgetForm.class.php
+sfWidgetFormDate.class.php
 file
 
 
 
 
-2010-02-12T02:59:29.832940Z
-82948eda766e83c0289396673ab24185
-2009-11-18T13:12:40.498957Z
-24137
-fabien
+2010-02-12T02:59:29.803938Z
+ee27556b31d555b144836e4b1071df4b
+2009-11-30T21:20:19.002184Z
+24605
+FabianLange
 has-props
 
 
@@ -299,7 +265,7 @@ has-props
 
 
 
-9130
+4905
 
 sfWidgetFormSelect.class.php
 file
@@ -334,6 +300,40 @@ has-props
 
 
 3137
+
+sfWidgetForm.class.php
+file
+
+
+
+
+2010-02-12T02:59:29.832940Z
+82948eda766e83c0289396673ab24185
+2009-11-18T13:12:40.498957Z
+24137
+fabien
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9130
 
 sfWidgetFormSchemaFormatterList.class.php
 file

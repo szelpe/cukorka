@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 43
-/!svn/ver/24278/branches/1.4/test/unit/form
+/!svn/ver/27954/branches/1.4/test/unit/form
 END
 sfFormTest.php
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/!svn/ver/24278/branches/1.4/test/unit/form/sfFormTest.php
+/!svn/ver/27954/branches/1.4/test/unit/form/sfFormTest.php
 END
 sfFormFieldTest.php
 K 25
