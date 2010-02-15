@@ -34,8 +34,8 @@ class sfSchaccFilter extends sfFilter {
     public static function getLDAP($username = null, $password = null) {
         return new adLDAP(array_merge(sfConfig::get('sf_Schacc_LDAP'),
                 array(
-                    'ad_username' => $username,
-                    'ad_password' => $password
+                'ad_username' => $username,
+                'ad_password' => $password
                 )
         ));
     }
@@ -46,18 +46,18 @@ class sfSchaccFilter extends sfFilter {
 
     protected function updateProfile($user, $data) {
         $userData = $this->getUserData(
-                        $data['username'],
-                        $data['password'],
-                        array_keys(sfConfig::get('sf_Schacc_Profile'))
-                    );
+                $data['username'],
+                $data['password'],
+                array_keys(sfConfig::get('sf_Schacc_Profile'))
+        );
 
         $user->is_schacc = true;
         $user->password = $data['password'];
-        
+
         foreach(sfConfig::get('sf_Schacc_Profile') as $key => $value) {
             $user->Profile->{$value} = $userData[0][$key][0];
         }
-        
+
         if(in_array($data['username'], sfConfig::get('sf_Schacc_Admins'))) {
             $user->is_super_admin = true;
         }
