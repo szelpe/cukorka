@@ -1,0 +1,7 @@
+SchaccUser:
+  inheritance:
+    extends: sfGuardUser
+    type: simple
+  columns:
+    is_schacc:
+      type: boolean

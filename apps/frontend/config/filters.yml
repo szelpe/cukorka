@@ -3,9 +3,8 @@
 remember_me:
   class: sfGuardRememberMeFilter
 rendering: ~
+schacc:
+  class: sfSchaccFilter
 security:  ~
-
-# insert your own filters here
-
 cache:     ~
 execution: ~

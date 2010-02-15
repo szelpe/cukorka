@@ -13,6 +13,7 @@
  * @property boolean $is_active
  * @property boolean $is_super_admin
  * @property timestamp $last_login
+ * @property boolean $is_schacc
  * @property Doctrine_Collection $groups
  * @property Doctrine_Collection $permissions
  * @property Doctrine_Collection $sfGuardUserPermission
@@ -34,6 +35,7 @@
  * @method boolean             getIsActive()              Returns the current record's "is_active" value
  * @method boolean             getIsSuperAdmin()          Returns the current record's "is_super_admin" value
  * @method timestamp           getLastLogin()             Returns the current record's "last_login" value
+ * @method boolean             getIsSchacc()              Returns the current record's "is_schacc" value
  * @method Doctrine_Collection getGroups()                Returns the current record's "groups" collection
  * @method Doctrine_Collection getPermissions()           Returns the current record's "permissions" collection
  * @method Doctrine_Collection getSfGuardUserPermission() Returns the current record's "sfGuardUserPermission" collection
@@ -54,6 +56,7 @@
  * @method sfGuardUser         setIsActive()              Sets the current record's "is_active" value
  * @method sfGuardUser         setIsSuperAdmin()          Sets the current record's "is_super_admin" value
  * @method sfGuardUser         setLastLogin()             Sets the current record's "last_login" value
+ * @method sfGuardUser         setIsSchacc()              Sets the current record's "is_schacc" value
  * @method sfGuardUser         setGroups()                Sets the current record's "groups" collection
  * @method sfGuardUser         setPermissions()           Sets the current record's "permissions" collection
  * @method sfGuardUser         setSfGuardUserPermission() Sets the current record's "sfGuardUserPermission" collection
@@ -113,6 +116,9 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              ));
         $this->hasColumn('last_login', 'timestamp', null, array(
              'type' => 'timestamp',
+             ));
+        $this->hasColumn('is_schacc', 'boolean', null, array(
+             'type' => 'boolean',
              ));
 
 

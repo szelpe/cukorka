@@ -1,0 +1,46 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+all:
+  Schacc:
+    enable: true
+    Admins: ['szelpe']
+    LDAP:
+      account_suffix: '@sch.bme.hu'
+      domain_controllers: ['152.66.208.42']
+      base_dn: null
+      real_primarygroup: true
+      use_ssl: false
+      use_tls: false
+      recursive_groups: true
+    Profile:
+      'displayname' : 'full_name'
+      'mail' : 'email'
+#      'objectclass' : ''
+#      'cn' : ''
+#      'description' : ''
+#      'distinguishedname' : ''
+#      'instancetype' : ''
+#      'whencreated' : ''
+#      'whenchanged' : ''
+#      'usncreated' : ''
+#      'memberof' : ''
+#      'usnchanged' : ''
+#      'name' : ''
+#      'lastlogontimestamp' : ''
+#      'objectcategory' : ''
+#      'samaccounttype' : ''
+#      'samaccountname' : ''
+#      'logoncount' : ''
+#      'accountexpires' : ''
+#      'primarygroupid' : ''
+#      'pwdlastset' : ''
+#      'lastlogon' : ''
+#      'badpasswordtime' : ''
+#      'homedirectory' : ''
+#      'homedrive' : ''
+#      'countrycode' : ''
+#      'codepage' : ''
+#      'objectguid' : ''
+#      'useraccountcontrol' : ''
+#      'badpwdcount' : ''
