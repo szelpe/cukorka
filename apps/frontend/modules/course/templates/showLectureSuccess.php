@@ -1,6 +1,7 @@
 <?php slot('main'); ?>
 <div class="section_w590">
     <h2><?php echo $lecture->title; ?></h2>
+    <span id="navi"><?php echo link_to($course->title, 'course', array('url' => $course->url)) ?> > <?php echo $lecture->title ?></span>
     <div id="description">
         <p><?php echo $lecture->description; ?></p>
     </div>
