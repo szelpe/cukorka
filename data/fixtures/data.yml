@@ -1,110 +1,51 @@
-Aid:
-  Aid_10:
-    Uploader: sfGuardUser_1
-    Lecture: Lecture_1
-    file: aspnet.txt
-    date: '2010-02-13 04:22:19'
-    title: asdasd
-  Aid_11:
-    Uploader: sfGuardUser_1
-    Lecture: Lecture_1
-    file: templatemo_187_general.zip
-    date: '2010-02-13 04:50:29'
-    title: qweqwe
-  Aid_12:
-    Uploader: sfGuardUser_1
-    Lecture: Lecture_1
-    file: wadon.txt
-    date: '2010-02-13 04:51:35'
-    title: tertet
-Course:
-  Course_1:
-    url: Webteam_alapcsomag
-    title: 'Webteam alapcsomag'
-    description: 'Kezdőknek alapozó webfejlesztés tanfolyam'
-  Course_2:
-    url: ASPNET_tanfolyam
-    title: 'ASP.NET tanfolyam'
-    description: 'ASP.NET tanfolyam'
-CourseLecturer:
-  CourseLecturer_1_1:
-    Course: Course_1
-    sfGuardUser: sfGuardUser_1
-  CourseLecturer_2_2:
-    Course: Course_2
-    sfGuardUser: sfGuardUser_2
-CourseStudent:
-  CourseStudent_2_1:
-    Course: Course_2
-    sfGuardUser: sfGuardUser_1
-  CourseStudent_1_2:
-    Course: Course_1
-    sfGuardUser: sfGuardUser_2
-  CourseStudent_1_3:
-    Course: Course_1
-    sfGuardUser: sfGuardUser_3
-Homework:
-  Homework_28:
-    Uploader: sfGuardUser_1
-    Lecture: Lecture_3
-    file: dragonfly.rar
-    date: '2010-02-13 04:50:05'
-    rate: null
-Lecture:
-  Lecture_1:
-    url: Bevezeto
-    Course: Course_1
-    title: Bevezető
-    description: Bevezető
-    homeworktask: feladat
-    displayHomeworkForm: true
-  Lecture_2:
-    url: 2_eloadas
-    Course: Course_1
-    title: '2. előadás'
-    description: ':)'
-    homeworktask: adasd
-    displayHomeworkForm: true
-  Lecture_3:
-    url: 1_eloadas
-    Course: Course_2
-    title: '1. előadás'
-    description: '1. előadás'
-    homeworktask: '1. előadás'
-    displayHomeworkForm: true
 Profile:
-  Profile_1:
-    User: sfGuardUser_1
+  Profile_2:
+    User: sfGuardUser_5
     full_name: 'Szél Péter'
-    email: szelpe@gmail.com
+    email: szelpe@sch.bme.hu
 sfGuardUser:
-  sfGuardUser_1:
+  sfGuardUser_5:
     username: szelpe
     algorithm: sha1
-    salt: 5252e754f12722858b00e630ee450fad
-    password: 5abbd69989834d9ddab0100e31420927f7a2a4f7
+    salt: f2cef1080529cfc4c7f7839f4fa3948c
+    password: 85612632b7f0e216cabfab3efd2b80620b5e4d12
     is_active: true
     is_super_admin: true
-    last_login: null
-    created_at: '2010-02-13 03:03:10'
-    updated_at: '2010-02-13 03:03:10'
-  sfGuardUser_2:
+    last_login: '2010-02-15 04:11:02'
+    is_schacc: true
+    created_at: '2010-02-15 00:09:10'
+    updated_at: '2010-02-15 04:11:02'
+  sfGuardUser_6:
     username: peter
     algorithm: sha1
-    salt: a804daeb222edca7672a5c1d39849de9
-    password: d4358e66f01a3e27c3fe7234fbe0702e26e1052d
+    salt: f2cef1080529cfc4c7f7839f4fa3948c
+    password: c659637327a135c3529398904c95ca7dd10ae2ae
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '2010-02-13 03:03:17'
-    updated_at: '2010-02-13 03:03:17'
-  sfGuardUser_3:
-    username: peterke
+    is_schacc: null
+    created_at: '2010-02-15 00:11:41'
+    updated_at: '2010-02-15 00:11:41'
+SchaccUser:
+  SchaccUser_5:
+    username: szelpe
     algorithm: sha1
-    salt: e70f265dc3a43102f9fdad59f3a7c5e4
-    password: 63efd4eaf4a2cbca64779b8f8ca177449d16b712
+    salt: f2cef1080529cfc4c7f7839f4fa3948c
+    password: 85612632b7f0e216cabfab3efd2b80620b5e4d12
+    is_active: true
+    is_super_admin: true
+    last_login: '2010-02-15 04:11:02'
+    is_schacc: true
+    created_at: '2010-02-15 00:09:10'
+    updated_at: '2010-02-15 04:11:02'
+  SchaccUser_6:
+    username: peter
+    algorithm: sha1
+    salt: f2cef1080529cfc4c7f7839f4fa3948c
+    password: c659637327a135c3529398904c95ca7dd10ae2ae
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '2010-02-13 03:03:22'
-    updated_at: '2010-02-13 03:03:22'
+    is_schacc: null
+    created_at: '2010-02-15 00:11:41'
+    updated_at: '2010-02-15 00:11:41'
