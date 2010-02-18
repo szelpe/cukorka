@@ -20,6 +20,10 @@ class Homework extends BaseHomework {
         return parent::getFilePath('homework', $course_url, $lecture_url, $username, $filename);
     }
 
+    public function getMyFilePath() {
+        return parent::getMyFilePath('homework', $this->file);
+    }
+
     /**
      * Empty template method to provide concrete Record classes with the possibility
      * to hook into the saving procedure.

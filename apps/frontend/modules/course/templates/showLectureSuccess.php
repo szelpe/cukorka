@@ -23,7 +23,7 @@
         <ul>
             <?php foreach($lecture->Aids as $aid) : ?>
             <li>
-                <?php echo link_to($aid->title, $aid->getFileURL()) ?>
+                <?php echo link_to($aid->title, preg_replace('/\./', ':', $aid->getFileURL())) ?>
             </li>
             <?php endforeach; ?>
         </ul>

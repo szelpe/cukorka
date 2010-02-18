@@ -20,7 +20,7 @@
                         <?php echo link_to($homework->Uploader->Profile->full_name, 'profile_view', array('id' => $homework->Uploader->Profile->id)); ?>
             </td>
             <td>
-                        <?php echo link_to($homework->file, $homework->getFileURL()); ?>
+                        <?php echo link_to($homework->file, preg_replace('/\./', ':', $homework->getFileURL())); ?>
             </td>
             <td>
                         <?php if($user && $user->isLecturer($course)): ?>
