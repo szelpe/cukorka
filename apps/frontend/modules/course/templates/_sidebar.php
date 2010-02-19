@@ -11,5 +11,8 @@
             </li>
             <?php endforeach; ?>
         </ol>
+        <p>
+            <?php echo link_to('Jelentkezés a tanfolyamra', 'course_check_in', array('url' => $course->url)) ?>
+        </p>
     </div>
 </div>

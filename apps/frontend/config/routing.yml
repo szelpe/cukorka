@@ -45,6 +45,14 @@ upload_aid:
   url: /upload/aid
   param: { module: course, action: uploadAid }
 
+course_check_in:
+  url: /:url/checkIn
+  class: sfDoctrineRoute
+  options: { model: Course, type: object }
+  param: { module: course, action: checkIn }
+  requirements:
+    sf_method: [get, post]
+
 course:
   url: /:url
   class: sfDoctrineRoute

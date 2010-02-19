@@ -14,6 +14,7 @@
  * @property Doctrine_Collection $Lectures
  * @property Doctrine_Collection $CourseStudent
  * @property Doctrine_Collection $CourseLecturer
+ * @property Doctrine_Collection $CheckIns
  * 
  * @method integer             getId()             Returns the current record's "id" value
  * @method string              getUrl()            Returns the current record's "url" value
@@ -24,6 +25,7 @@
  * @method Doctrine_Collection getLectures()       Returns the current record's "Lectures" collection
  * @method Doctrine_Collection getCourseStudent()  Returns the current record's "CourseStudent" collection
  * @method Doctrine_Collection getCourseLecturer() Returns the current record's "CourseLecturer" collection
+ * @method Doctrine_Collection getCheckIns()       Returns the current record's "CheckIns" collection
  * @method Course              setId()             Sets the current record's "id" value
  * @method Course              setUrl()            Sets the current record's "url" value
  * @method Course              setTitle()          Sets the current record's "title" value
@@ -33,6 +35,7 @@
  * @method Course              setLectures()       Sets the current record's "Lectures" collection
  * @method Course              setCourseStudent()  Sets the current record's "CourseStudent" collection
  * @method Course              setCourseLecturer() Sets the current record's "CourseLecturer" collection
+ * @method Course              setCheckIns()       Sets the current record's "CheckIns" collection
  * 
  * @package    cukorka
  * @subpackage model
@@ -89,6 +92,10 @@ abstract class BaseCourse extends sfDoctrineRecord
              'foreign' => 'course_id'));
 
         $this->hasMany('CourseLecturer', array(
+             'local' => 'id',
+             'foreign' => 'course_id'));
+
+        $this->hasMany('CheckIn as CheckIns', array(
              'local' => 'id',
              'foreign' => 'course_id'));
     }

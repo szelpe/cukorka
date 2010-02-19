@@ -26,6 +26,7 @@
  * @property Doctrine_Collection $CourseLecturer
  * @property Doctrine_Collection $Homeworks
  * @property Profile $Profile
+ * @property Doctrine_Collection $CheckIns
  * 
  * @method integer             getId()                    Returns the current record's "id" value
  * @method string              getUsername()              Returns the current record's "username" value
@@ -48,6 +49,7 @@
  * @method Doctrine_Collection getCourseLecturer()        Returns the current record's "CourseLecturer" collection
  * @method Doctrine_Collection getHomeworks()             Returns the current record's "Homeworks" collection
  * @method Profile             getProfile()               Returns the current record's "Profile" value
+ * @method Doctrine_Collection getCheckIns()              Returns the current record's "CheckIns" collection
  * @method sfGuardUser         setId()                    Sets the current record's "id" value
  * @method sfGuardUser         setUsername()              Sets the current record's "username" value
  * @method sfGuardUser         setAlgorithm()             Sets the current record's "algorithm" value
@@ -69,6 +71,7 @@
  * @method sfGuardUser         setCourseLecturer()        Sets the current record's "CourseLecturer" collection
  * @method sfGuardUser         setHomeworks()             Sets the current record's "Homeworks" collection
  * @method sfGuardUser         setProfile()               Sets the current record's "Profile" value
+ * @method sfGuardUser         setCheckIns()              Sets the current record's "CheckIns" collection
  * 
  * @package    cukorka
  * @subpackage model
@@ -182,6 +185,10 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'foreign' => 'uploader_id'));
 
         $this->hasOne('Profile', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('CheckIn as CheckIns', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

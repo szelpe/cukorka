@@ -33,8 +33,8 @@ abstract class File extends BaseFile {
                 . $filename;
     }
 
-    public function getMyFilePath($type, $filename) {
-        return self::getFilePath($type, $this->Lecture->Course->url, $this->Lecture->url, $this->Uploader->username, $filename);
+    public function getMyFilePath() {
+        return self::getFilePath($this->type, $this->Lecture->Course->url, $this->Lecture->url, $this->Uploader->username, $this->file);
     }
 
     /**

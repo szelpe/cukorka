@@ -1,4 +1,5 @@
 CREATE TABLE aid (uploader_id INT NOT NULL, lecture_id INT NOT NULL, file VARCHAR(128) NOT NULL, date DATETIME NOT NULL, id INT AUTO_INCREMENT, title VARCHAR(128) NOT NULL, INDEX lecture_id_idx (lecture_id), INDEX uploader_id_idx (uploader_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE check_in (id INT AUTO_INCREMENT, user_id INT NOT NULL, course_id INT NOT NULL, motivation text NOT NULL, date_of_check_in datetime NOT NULL, INDEX user_id_idx (user_id), INDEX course_id_idx (course_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE course (id INT AUTO_INCREMENT, url VARCHAR(128) NOT NULL UNIQUE, title VARCHAR(128) NOT NULL, description text NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE course_lecturer (course_id INT, lecturer_id INT, PRIMARY KEY(course_id, lecturer_id)) ENGINE = INNODB;
 CREATE TABLE course_student (course_id INT, student_id INT, PRIMARY KEY(course_id, student_id)) ENGINE = INNODB;
@@ -14,6 +15,8 @@ CREATE TABLE sf_guard_user_group (user_id INT, group_id INT, created_at DATETIME
 CREATE TABLE sf_guard_user_permission (user_id INT, permission_id INT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, permission_id)) ENGINE = INNODB;
 ALTER TABLE aid ADD CONSTRAINT aid_uploader_id_sf_guard_user_id FOREIGN KEY (uploader_id) REFERENCES sf_guard_user(id);
 ALTER TABLE aid ADD CONSTRAINT aid_lecture_id_lecture_id FOREIGN KEY (lecture_id) REFERENCES lecture(id) ON DELETE CASCADE;
+ALTER TABLE check_in ADD CONSTRAINT check_in_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
+ALTER TABLE check_in ADD CONSTRAINT check_in_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
 ALTER TABLE course_lecturer ADD CONSTRAINT course_lecturer_lecturer_id_sf_guard_user_id FOREIGN KEY (lecturer_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE course_lecturer ADD CONSTRAINT course_lecturer_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
 ALTER TABLE course_student ADD CONSTRAINT course_student_student_id_sf_guard_user_id FOREIGN KEY (student_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;

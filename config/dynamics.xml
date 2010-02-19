@@ -6,4 +6,8 @@
         <require>jquery</require>
         <javascript>rateselector</javascript>
     </package>
+
+    <package name="tinyMCE">
+        <javascript>tiny_mce/tiny_mce</javascript>
+    </package>
 </dynamics>

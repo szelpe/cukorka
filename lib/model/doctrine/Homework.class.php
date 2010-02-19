@@ -16,14 +16,6 @@ class Homework extends BaseHomework {
         $this->type = "homework";
     }
 
-    public static function getFilePath($course_url, $lecture_url, $username , $filename = '') {
-        return parent::getFilePath('homework', $course_url, $lecture_url, $username, $filename);
-    }
-
-    public function getMyFilePath() {
-        return parent::getMyFilePath('homework', $this->file);
-    }
-
     /**
      * Empty template method to provide concrete Record classes with the possibility
      * to hook into the saving procedure.
@@ -38,9 +30,10 @@ class Homework extends BaseHomework {
                 ->fetchOne();
 
         if($homework) {
-            $filename = $homework->file;
+            //$filename = $homework->file;
+            
+            @unlink($homework->getMyFilePath());
             $homework->delete();
-            @unlink($this->getMyFilePath($this->type, $filename));
         }
     }
 

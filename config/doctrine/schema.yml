@@ -212,3 +212,39 @@ File:
     date:
       type: timestamp(25)
       notnull: true
+CheckIn:
+  tableName: check_in
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(4)
+      notnull: true
+    course_id:
+      type: integer(4)
+      notnull: true
+    motivation:
+      type: text
+      notnull: ture
+    date_of_check_in:
+      type: datetime
+      notnull: true
+  relations:
+    sfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: many
+      alias: User
+      foreignAlias: CheckIns
+      onDelete: cascade
+    Course:
+      local: course_id
+      foreign: id
+      type: one
+      foreignType: many
+      alias: Course
+      foreignAlias: CheckIns
+      onDelete: cascade
