@@ -6,5 +6,7 @@ rendering: ~
 schacc:
   class: sfSchaccFilter
 security:  ~
+ssl:
+  class: SSLFilter
 cache:     ~
 execution: ~
