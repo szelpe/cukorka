@@ -9,6 +9,7 @@
  * @property string $url
  * @property string $title
  * @property text $description
+ * @property text $check_in_text
  * @property Doctrine_Collection $Students
  * @property Doctrine_Collection $Lecturers
  * @property Doctrine_Collection $Lectures
@@ -20,6 +21,7 @@
  * @method string              getUrl()            Returns the current record's "url" value
  * @method string              getTitle()          Returns the current record's "title" value
  * @method text                getDescription()    Returns the current record's "description" value
+ * @method text                getCheckInText()    Returns the current record's "check_in_text" value
  * @method Doctrine_Collection getStudents()       Returns the current record's "Students" collection
  * @method Doctrine_Collection getLecturers()      Returns the current record's "Lecturers" collection
  * @method Doctrine_Collection getLectures()       Returns the current record's "Lectures" collection
@@ -30,6 +32,7 @@
  * @method Course              setUrl()            Sets the current record's "url" value
  * @method Course              setTitle()          Sets the current record's "title" value
  * @method Course              setDescription()    Sets the current record's "description" value
+ * @method Course              setCheckInText()    Sets the current record's "check_in_text" value
  * @method Course              setStudents()       Sets the current record's "Students" collection
  * @method Course              setLecturers()      Sets the current record's "Lecturers" collection
  * @method Course              setLectures()       Sets the current record's "Lectures" collection
@@ -65,6 +68,10 @@ abstract class BaseCourse extends sfDoctrineRecord
              'length' => '128',
              ));
         $this->hasColumn('description', 'text', null, array(
+             'type' => 'text',
+             'notnull' => true,
+             ));
+        $this->hasColumn('check_in_text', 'text', null, array(
              'type' => 'text',
              'notnull' => true,
              ));

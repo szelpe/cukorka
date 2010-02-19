@@ -19,6 +19,7 @@ abstract class BaseCourseForm extends BaseFormDoctrine
       'url'            => new sfWidgetFormInputText(),
       'title'          => new sfWidgetFormInputText(),
       'description'    => new sfWidgetFormInputText(),
+      'check_in_text'  => new sfWidgetFormInputText(),
       'students_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser')),
       'lecturers_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser')),
     ));
@@ -28,6 +29,7 @@ abstract class BaseCourseForm extends BaseFormDoctrine
       'url'            => new sfValidatorString(array('max_length' => 128)),
       'title'          => new sfValidatorString(array('max_length' => 128)),
       'description'    => new sfValidatorPass(),
+      'check_in_text'  => new sfValidatorPass(),
       'students_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
       'lecturers_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
     ));

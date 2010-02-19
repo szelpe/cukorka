@@ -16,6 +16,7 @@ abstract class BaseCourseFormFilter extends BaseFormFilterDoctrine
       'url'            => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'title'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'check_in_text'  => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'students_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser')),
       'lecturers_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser')),
     ));
@@ -24,6 +25,7 @@ abstract class BaseCourseFormFilter extends BaseFormFilterDoctrine
       'url'            => new sfValidatorPass(array('required' => false)),
       'title'          => new sfValidatorPass(array('required' => false)),
       'description'    => new sfValidatorPass(array('required' => false)),
+      'check_in_text'  => new sfValidatorPass(array('required' => false)),
       'students_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
       'lecturers_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
     ));
@@ -81,6 +83,7 @@ abstract class BaseCourseFormFilter extends BaseFormFilterDoctrine
       'url'            => 'Text',
       'title'          => 'Text',
       'description'    => 'Text',
+      'check_in_text'  => 'Text',
       'students_list'  => 'ManyKey',
       'lecturers_list' => 'ManyKey',
     );

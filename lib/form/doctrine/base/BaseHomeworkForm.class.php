@@ -21,6 +21,7 @@ abstract class BaseHomeworkForm extends BaseFormDoctrine
       'date'        => new sfWidgetFormDateTime(),
       'id'          => new sfWidgetFormInputHidden(),
       'rate'        => new sfWidgetFormInputText(),
+      'comment'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -30,6 +31,7 @@ abstract class BaseHomeworkForm extends BaseFormDoctrine
       'date'        => new sfValidatorDateTime(),
       'id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'rate'        => new sfValidatorInteger(array('required' => false)),
+      'comment'     => new sfValidatorString(array('max_length' => 128, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('homework[%s]');

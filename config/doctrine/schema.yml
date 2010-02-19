@@ -43,6 +43,9 @@ Course:
     description:
       type: text
       notnull: true
+    check_in_text:
+      type: text
+      notnull: true
   relations:
     Students:
       class: sfGuardUser
@@ -115,6 +118,9 @@ Homework:
       autoincrement: true
     rate:
       type: integer(4)
+      notnull: false
+    comment:
+      type: string(128)
       notnull: false
   relations:
     Lecture:

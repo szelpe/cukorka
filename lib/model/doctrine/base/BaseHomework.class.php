@@ -7,15 +7,18 @@
  * 
  * @property integer $id
  * @property integer $rate
+ * @property string $comment
  * @property Lecture $Lecture
  * @property sfGuardUser $Uploader
  * 
  * @method integer     getId()       Returns the current record's "id" value
  * @method integer     getRate()     Returns the current record's "rate" value
+ * @method string      getComment()  Returns the current record's "comment" value
  * @method Lecture     getLecture()  Returns the current record's "Lecture" value
  * @method sfGuardUser getUploader() Returns the current record's "Uploader" value
  * @method Homework    setId()       Sets the current record's "id" value
  * @method Homework    setRate()     Sets the current record's "rate" value
+ * @method Homework    setComment()  Sets the current record's "comment" value
  * @method Homework    setLecture()  Sets the current record's "Lecture" value
  * @method Homework    setUploader() Sets the current record's "Uploader" value
  * 
@@ -40,6 +43,11 @@ abstract class BaseHomework extends File
              'type' => 'integer',
              'notnull' => false,
              'length' => '4',
+             ));
+        $this->hasColumn('comment', 'string', 128, array(
+             'type' => 'string',
+             'notnull' => false,
+             'length' => '128',
              ));
     }
 
