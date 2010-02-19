@@ -140,7 +140,7 @@ class courseActions extends sfActions {
         $homework->rate = $rate == 0 ? null : $rate;
         $homework->save();
 
-        echo "Sikeresen módosítottad az értékelést.";
+        echo "Sikeresen módosítottad az értékelést!";
 
         return sfView::NONE;
     }

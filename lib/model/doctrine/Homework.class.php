@@ -29,9 +29,7 @@ class Homework extends BaseHomework {
                 ->andWhere('lecture_id = ?', $this->lecture_id)
                 ->fetchOne();
 
-        if($homework) {
-            //$filename = $homework->file;
-            
+        if($homework->id != $this->id) {            
             @unlink($homework->getMyFilePath());
             $homework->delete();
         }
