@@ -27785,3 +27785,108 @@ Feb 19 01:57:25 symfony [info] {sfWebDebugLogger} Partial "course/_aidForm" 6.33
 Feb 19 01:57:25 symfony [info] {sfWebDebugLogger} Component "profile/loginBox" 0.11 ms (1)
 Feb 19 01:57:25 symfony [info] {sfWebDebugLogger} Partial "profile/_loginBox" 6.25 ms (1)
 Feb 19 01:57:25 symfony [info] {sfWebResponse} Send content (90428 o)
+Feb 19 08:15:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 19 08:15:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 19 08:15:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 19 08:15:50 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 19 08:15:50 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 19 08:15:50 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 19 08:15:50 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 19 08:15:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 19 08:15:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l, course c WHERE (l.course_id = c.id AND l.url = ? AND c.url = ?) - (1_eloadas, Webteam_alapcsomag)
+Feb 19 08:15:53 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/Webteam_alapcsomag/1_eloadas" (/).
+Feb 19 08:15:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 19 08:15:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 19 08:15:53 symfony [info] {sfWebDebugLogger} Configuration 4144.44 ms (6)
+Feb 19 08:15:53 symfony [info] {sfWebDebugLogger} Factories 4588.70 ms (1)
+Feb 19 08:15:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (2)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 19 08:16:08 symfony [info] {sfPatternRouting} Match route "course" (/:url) for /Webteam_alapcsomag with parameters array (  'module' => 'course',  'action' => 'listLectures',  'url' => 'Webteam_alapcsomag',)
+Feb 19 08:16:09 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 19 08:16:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 19 08:16:09 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 19 08:16:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 19 08:16:09 symfony [info] {courseActions} Call "courseActions->executeListLectures()"
+Feb 19 08:16:09 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 19 08:16:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.url AS c__url, c.title AS c__title, c.description AS c__description, c.check_in_text AS c__check_in_text FROM course c WHERE (c.url = ?) - (Webteam_alapcsomag)
+Feb 19 08:16:09 symfony [err] {sfError404Exception} Unable to find the Course object with the following parameters "array (  'url' => 'Webteam_alapcsomag',)").
+Feb 19 08:16:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 19 08:16:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 19 08:16:09 symfony [info] {sfWebDebugLogger} Configuration 14.10 ms (8)
+Feb 19 08:16:09 symfony [info] {sfWebDebugLogger} Factories 116.84 ms (1)
+Feb 19 08:16:09 symfony [info] {sfWebDebugLogger} Action "course/listLectures" 215.71 ms (1)
+Feb 19 08:16:09 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 19 08:16:16 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'welcome',  'action' => 'index',)
+Feb 19 08:16:17 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 19 08:16:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 19 08:16:17 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 19 08:16:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 19 08:16:17 symfony [info] {welcomeActions} Call "welcomeActions->executeIndex()"
+Feb 19 08:16:17 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 19 08:16:17 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.url AS c__url, c.title AS c__title, c.description AS c__description, c.check_in_text AS c__check_in_text FROM course c - ()
+Feb 19 08:16:17 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/welcome/templates/indexSuccess.php"
+Feb 19 08:16:18 symfony [info] {main} Set slot "main"
+Feb 19 08:16:18 symfony [info] {main} Set slot "sidebar"
+Feb 19 08:16:18 symfony [info] {sfPHPView} Decorate content with "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 19 08:16:18 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 19 08:16:19 symfony [info] {main} Call "profile->executeLoginBox()"
+Feb 19 08:16:20 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/profile/templates/_loginBox.php"
+Feb 19 08:16:20 symfony [info] {main} Get slot "sidebar"
+Feb 19 08:16:20 symfony [info] {main} Get slot "main"
+Feb 19 08:16:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 19 08:16:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 19 08:16:20 symfony [info] {sfWebDebugLogger} Configuration 629.08 ms (11)
+Feb 19 08:16:20 symfony [info] {sfWebDebugLogger} Factories 114.95 ms (1)
+Feb 19 08:16:20 symfony [info] {sfWebDebugLogger} Action "welcome/index" 105.43 ms (1)
+Feb 19 08:16:20 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Feb 19 08:16:20 symfony [info] {sfWebDebugLogger} View "Success" for "welcome/index" 3362.93 ms (1)
+Feb 19 08:16:20 symfony [info] {sfWebDebugLogger} Component "profile/loginBox" 1119.39 ms (1)
+Feb 19 08:16:20 symfony [info] {sfWebDebugLogger} Partial "profile/_loginBox" 453.61 ms (1)
+Feb 19 08:16:20 symfony [info] {sfWebResponse} Send content (45328 o)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 19 08:16:26 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'welcome',  'action' => 'index',)
+Feb 19 08:16:27 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 19 08:16:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 19 08:16:27 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 19 08:16:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 19 08:16:27 symfony [info] {welcomeActions} Call "welcomeActions->executeIndex()"
+Feb 19 08:16:27 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 19 08:16:27 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.url AS c__url, c.title AS c__title, c.description AS c__description, c.check_in_text AS c__check_in_text FROM course c - ()
+Feb 19 08:16:27 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/welcome/templates/indexSuccess.php"
+Feb 19 08:16:27 symfony [info] {main} Set slot "main"
+Feb 19 08:16:27 symfony [info] {main} Set slot "sidebar"
+Feb 19 08:16:27 symfony [info] {sfPHPView} Decorate content with "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 19 08:16:27 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 19 08:16:27 symfony [info] {main} Call "profile->executeLoginBox()"
+Feb 19 08:16:27 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/profile/templates/_loginBox.php"
+Feb 19 08:16:27 symfony [info] {main} Get slot "sidebar"
+Feb 19 08:16:27 symfony [info] {main} Get slot "main"
+Feb 19 08:16:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 19 08:16:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Configuration 16.95 ms (10)
+Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Factories 142.31 ms (1)
+Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Action "welcome/index" 100.46 ms (1)
+Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (2)
+Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} View "Success" for "welcome/index" 64.51 ms (1)
+Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Component "profile/loginBox" 14.67 ms (1)
+Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Partial "profile/_loginBox" 10.93 ms (1)
+Feb 19 08:16:27 symfony [info] {sfWebResponse} Send content (45658 o)

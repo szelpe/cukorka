@@ -248,7 +248,7 @@ h4 {
 #templatemo_content {
     clear: both;
     width: 900px;
-    padding: 30px 30px 0 30px;
+    padding: 20px 30px 0 30px;
     background: url(images/templatemo_footer_top.jpg) bottom repeat-x;
 }
 
@@ -398,4 +398,16 @@ td input[type=submit] {
 #navi {
     margin: 5px 0 20px 10px;
     display: block;
+}
+
+#messages {
+    border: solid thick #6c5837;
+    padding: 2px 10px 2px 10px;
+    background: #514026;
+    color: #bba277;
+}
+
+#messages-outer {
+    border: ridge 2px #392e1f;
+    margin: 0px 0px 20px 0px;
 }

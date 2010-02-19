@@ -18,7 +18,7 @@ class AidForm extends BaseAidForm
       ));
 
       $this->validatorSchema['file'] = new sfValidatorFile(array(
-          'max_size' => '200000',
+          'max_size' => '2000000',
           'validated_file_class' => 'myValidatedFile'
       ));
   }

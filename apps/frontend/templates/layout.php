@@ -24,12 +24,13 @@
             </div> <!-- end of banner -->
 
             <div id="templatemo_content">
-                <div id="messages">
-                    <?php if ($sf_user->hasFlash('message')): ?>
+            <?php if ($sf_user->hasFlash('message')): ?>
+                <div id="messages-outer">
+                    <div id="messages">
                         <?php echo $sf_user->getFlash('message') ?>
-                    <?php endif; ?>
+                    </div>
                 </div>
-
+            <?php endif; ?>
                 <div id="side_column">
                     <?php if (has_slot('sidebar')): ?>
                         <?php include_slot('sidebar') ?>
