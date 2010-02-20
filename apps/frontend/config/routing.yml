@@ -38,7 +38,7 @@ rate_homework:
   param: { module: course, action: ajaxRateHomework }
 
 download:
-  url: /uploads/*
+  url: /download/uploads/*
   param: { module: download, action: index }
 
 upload_aid:

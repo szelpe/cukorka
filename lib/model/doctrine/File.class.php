@@ -44,7 +44,7 @@ abstract class File extends BaseFile {
      * @return string
      */
     public function getFileURL() {
-        return '/uploads/' . $this->type . 's/'
+        return '/download/uploads/' . $this->type . 's/'
                 . $this->Lecture->Course->url . '/'
                 . $this->Lecture->url . '/'
                 . $this->Uploader->username . '/'

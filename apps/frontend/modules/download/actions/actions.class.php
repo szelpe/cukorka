@@ -21,7 +21,7 @@ class downloadActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
-        $path = preg_replace('/\/uploads/', '', preg_replace('/:/', '.', $request->getPathInfo()));
+        $path = preg_replace('/\/download\/uploads/', '', preg_replace('/:/', '.', $request->getPathInfo()));
         $file = sfConfig::get('sf_upload_dir') . $path;
         if (file_exists($file)) {
             header('Content-Description: File Transfer');
