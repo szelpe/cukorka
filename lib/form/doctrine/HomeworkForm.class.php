@@ -18,7 +18,7 @@ class HomeworkForm extends BaseHomeworkForm
       
       $this->validatorSchema['file'] = new sfValidatorFile(array(
           'max_size' => '200000',
-          'mime_types' => array('application/zip', 'application/x-tar-gz', 'application/x-rar-compressed'),
+          'mime_types' => array('application/zip', 'application/x-tar-gz', 'application/x-rar-compressed', 'application/x-zip', 'application/x-rar', 'application/x-gzip'),
           'validated_file_class' => 'myValidatedFile'
       ));
 
