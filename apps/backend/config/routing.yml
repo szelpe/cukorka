@@ -1,3 +1,12 @@
+check_in:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                checkIn
+    module:               check_in
+    prefix_path:          /check_in
+    column:               id
+    with_wildcard_routes: true
+
 homework:
   class: sfDoctrineRouteCollection
   options:
