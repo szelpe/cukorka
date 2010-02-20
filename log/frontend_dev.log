@@ -27890,3 +27890,222 @@ Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} View "Success" for "welcome/in
 Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Component "profile/loginBox" 14.67 ms (1)
 Feb 19 08:16:27 symfony [info] {sfWebDebugLogger} Partial "profile/_loginBox" 10.93 ms (1)
 Feb 19 08:16:27 symfony [info] {sfWebResponse} Send content (45658 o)
+Feb 20 19:11:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 20 19:11:37 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 20 19:11:37 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 20 19:11:37 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 20 19:11:37 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 20 19:11:37 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 20 19:11:37 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l, course c WHERE (l.course_id = c.id AND l.url = ? AND c.url = ?) - (1_eloadas, Webteam_Alapcsomag)
+Feb 20 19:11:37 symfony [info] {sfPatternRouting} Match route "lecture" (/:course_url/:lecture_url) for /Webteam_Alapcsomag/1_eloadas with parameters array (  'module' => 'course',  'action' => 'showLecture',  'course_url' => 'Webteam_Alapcsomag',  'lecture_url' => '1_eloadas',  'id' => '1',)
+Feb 20 19:11:37 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 20 19:11:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 20 19:11:37 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 20 19:11:37 symfony [info] {sfFilterChain} Executing filter "SSLFilter"
+Feb 20 19:11:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Feb 20 19:11:37 symfony [info] {courseActions} Call "courseActions->executeShowLecture()"
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.url AS c__url, c.title AS c__title, c.description AS c__description, c.check_in_text AS c__check_in_text FROM course c WHERE (c.id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at, c.course_id AS c__course_id, c.lecturer_id AS c__lecturer_id FROM sf_guard_user s LEFT JOIN course_lecturer c ON s.id = c.lecturer_id WHERE (c.course_id IN (?)) - (1)
+Feb 20 19:11:37 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_sidebar.php"
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.course_id IN (?)) - (1)
+Feb 20 19:11:37 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/showLectureSuccess.php"
+Feb 20 19:11:37 symfony [info] {main} Set slot "main"
+Feb 20 19:11:37 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_homeworkTable.php"
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT h.uploader_id AS h__uploader_id, h.lecture_id AS h__lecture_id, h.file AS h__file, h.date AS h__date, h.id AS h__id, h.rate AS h__rate, h.comment AS h__comment FROM homework h WHERE (h.lecture_id IN (?)) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.full_name AS p__full_name, p.email AS p__email FROM profile p WHERE (p.user_id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at, c.course_id AS c__course_id, c.student_id AS c__student_id FROM sf_guard_user s LEFT JOIN course_student c ON s.id = c.student_id WHERE (c.course_id IN (?)) - (1)
+Feb 20 19:11:37 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_homeworkForm.php"
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.uploader_id AS a__uploader_id, a.lecture_id AS a__lecture_id, a.file AS a__file, a.date AS a__date, a.id AS a__id, a.title AS a__title FROM aid a WHERE (a.lecture_id IN (?)) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:38 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_aidForm.php"
+Feb 20 19:11:38 symfony [info] {sfPHPView} Decorate content with "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 20 19:11:38 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 20 19:11:38 symfony [info] {main} Call "profile->executeLoginBox()"
+Feb 20 19:11:38 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/profile/templates/_loginBox.php"
+Feb 20 19:11:38 symfony [info] {main} Get slot "sidebar"
+Feb 20 19:11:38 symfony [info] {main} Get slot "main"
+Feb 20 19:11:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 20 19:11:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Configuration 887.44 ms (11)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Factories 701.42 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.32 ms (19)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Action "course/showLecture" 331.16 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Partial "course/_sidebar" 51.86 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} View "Success" for "course/showLecture" 316.49 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Partial "course/_homeworkTable" 71.10 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Partial "course/_homeworkForm" 22.48 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Partial "course/_aidForm" 7.21 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Component "profile/loginBox" 0.12 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebDebugLogger} Partial "profile/_loginBox" 7.18 ms (1)
+Feb 20 19:11:38 symfony [info] {sfWebResponse} Send content (95623 o)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 20 19:11:38 symfony [info] {sfPatternRouting} Match route "sfDynamics_asset" (/dynamics/:name) for /dynamics/jquery.js with parameters array (  'module' => 'sfDynamics',  'action' => 'asset',  'name' => 'jquery.js',)
+Feb 20 19:11:38 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 20 19:11:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 20 19:11:38 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 20 19:11:38 symfony [info] {sfFilterChain} Executing filter "SSLFilter"
+Feb 20 19:11:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 20 19:11:38 symfony [info] {sfDynamicsActions} Call "sfDynamicsActions->executeAsset()"
+Feb 20 19:11:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 20 19:11:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/javascript; charset=utf-8"
+Feb 20 19:11:43 symfony [info] {sfWebDebugLogger} Configuration 120.55 ms (10)
+Feb 20 19:11:43 symfony [info] {sfWebDebugLogger} Factories 166.01 ms (1)
+Feb 20 19:11:43 symfony [info] {sfWebDebugLogger} Action "sfDynamics/asset" 4667.10 ms (1)
+Feb 20 19:11:43 symfony [info] {sfWebDebugLogger} View "None" for "sfDynamics/asset" 0.03 ms (1)
+Feb 20 19:11:43 symfony [info] {sfWebResponse} Send content (73690 o)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 20 19:11:43 symfony [info] {sfPatternRouting} Match route "sfDynamics_asset" (/dynamics/:name) for /dynamics/cukorka.rateselector.js with parameters array (  'module' => 'sfDynamics',  'action' => 'asset',  'name' => 'cukorka.rateselector.js',)
+Feb 20 19:11:43 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 20 19:11:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 20 19:11:43 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 20 19:11:43 symfony [info] {sfFilterChain} Executing filter "SSLFilter"
+Feb 20 19:11:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 20 19:11:43 symfony [info] {sfDynamicsActions} Call "sfDynamicsActions->executeAsset()"
+Feb 20 19:11:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 20 19:11:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/javascript; charset=utf-8"
+Feb 20 19:11:44 symfony [info] {sfWebDebugLogger} Configuration 14.38 ms (9)
+Feb 20 19:11:44 symfony [info] {sfWebDebugLogger} Factories 135.87 ms (1)
+Feb 20 19:11:44 symfony [info] {sfWebDebugLogger} Action "sfDynamics/asset" 78.58 ms (1)
+Feb 20 19:11:44 symfony [info] {sfWebDebugLogger} View "None" for "sfDynamics/asset" 0.03 ms (1)
+Feb 20 19:11:44 symfony [info] {sfWebResponse} Send content (262 o)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l, course c WHERE (l.course_id = c.id AND l.url = ? AND c.url = ?) - (1_eloadas, Webteam_Alapcsomag)
+Feb 20 19:11:56 symfony [info] {sfPatternRouting} Match route "lecture" (/:course_url/:lecture_url) for /Webteam_Alapcsomag/1_eloadas with parameters array (  'module' => 'course',  'action' => 'showLecture',  'course_url' => 'Webteam_Alapcsomag',  'lecture_url' => '1_eloadas',  'id' => '1',)
+Feb 20 19:11:56 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 20 19:11:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 20 19:11:56 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 20 19:11:56 symfony [info] {sfFilterChain} Executing filter "SSLFilter"
+Feb 20 19:11:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Feb 20 19:11:56 symfony [info] {courseActions} Call "courseActions->executeShowLecture()"
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.url AS c__url, c.title AS c__title, c.description AS c__description, c.check_in_text AS c__check_in_text FROM course c WHERE (c.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at, c.course_id AS c__course_id, c.lecturer_id AS c__lecturer_id FROM sf_guard_user s LEFT JOIN course_lecturer c ON s.id = c.lecturer_id WHERE (c.course_id IN (?)) - (1)
+Feb 20 19:11:56 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_sidebar.php"
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.course_id IN (?)) - (1)
+Feb 20 19:11:56 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/showLectureSuccess.php"
+Feb 20 19:11:56 symfony [info] {main} Set slot "main"
+Feb 20 19:11:56 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_homeworkTable.php"
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT h.uploader_id AS h__uploader_id, h.lecture_id AS h__lecture_id, h.file AS h__file, h.date AS h__date, h.id AS h__id, h.rate AS h__rate, h.comment AS h__comment FROM homework h WHERE (h.lecture_id IN (?)) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.full_name AS p__full_name, p.email AS p__email FROM profile p WHERE (p.user_id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at, c.course_id AS c__course_id, c.student_id AS c__student_id FROM sf_guard_user s LEFT JOIN course_student c ON s.id = c.student_id WHERE (c.course_id IN (?)) - (1)
+Feb 20 19:11:56 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_homeworkForm.php"
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.uploader_id AS a__uploader_id, a.lecture_id AS a__lecture_id, a.file AS a__file, a.date AS a__date, a.id AS a__id, a.title AS a__title FROM aid a WHERE (a.lecture_id IN (?)) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:11:56 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_aidForm.php"
+Feb 20 19:11:56 symfony [info] {sfPHPView} Decorate content with "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 20 19:11:56 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 20 19:11:56 symfony [info] {main} Call "profile->executeLoginBox()"
+Feb 20 19:11:56 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/profile/templates/_loginBox.php"
+Feb 20 19:11:56 symfony [info] {main} Get slot "sidebar"
+Feb 20 19:11:56 symfony [info] {main} Get slot "main"
+Feb 20 19:11:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 20 19:11:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Configuration 17.34 ms (11)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Factories 260.94 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.29 ms (19)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Action "course/showLecture" 273.10 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Partial "course/_sidebar" 47.30 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} View "Success" for "course/showLecture" 231.38 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Partial "course/_homeworkTable" 61.21 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Partial "course/_homeworkForm" 13.55 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Partial "course/_aidForm" 6.37 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Component "profile/loginBox" 0.11 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebDebugLogger} Partial "profile/_loginBox" 6.04 ms (1)
+Feb 20 19:11:56 symfony [info] {sfWebResponse} Send content (95720 o)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset" (/dynamics/:name)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language" (/dynamics/l/:language/:name)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_theme" (/dynamics/t/:theme/:name)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Connect sfRoute "sfDynamics_asset_language_theme" (/dynamics/l/:language/t/:theme/:name)
+Feb 20 19:50:51 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 20 19:50:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l, course c WHERE (l.course_id = c.id AND l.url = ? AND c.url = ?) - (1_eloadas, Webteam_Alapcsomag)
+Feb 20 19:50:51 symfony [info] {sfPatternRouting} Match route "lecture" (/:course_url/:lecture_url) for /Webteam_Alapcsomag/1_eloadas with parameters array (  'module' => 'course',  'action' => 'showLecture',  'course_url' => 'Webteam_Alapcsomag',  'lecture_url' => '1_eloadas',  'id' => '1',)
+Feb 20 19:50:52 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 20 19:50:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 20 19:50:52 symfony [info] {sfFilterChain} Executing filter "sfSchaccFilter"
+Feb 20 19:50:52 symfony [info] {sfFilterChain} Executing filter "SSLFilter"
+Feb 20 19:50:52 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Feb 20 19:50:52 symfony [info] {courseActions} Call "courseActions->executeShowLecture()"
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.url AS c__url, c.title AS c__title, c.description AS c__description, c.check_in_text AS c__check_in_text FROM course c WHERE (c.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at, c.course_id AS c__course_id, c.lecturer_id AS c__lecturer_id FROM sf_guard_user s LEFT JOIN course_lecturer c ON s.id = c.lecturer_id WHERE (c.course_id IN (?)) - (1)
+Feb 20 19:50:52 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_sidebar.php"
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.course_id IN (?)) - (1)
+Feb 20 19:50:52 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/showLectureSuccess.php"
+Feb 20 19:50:52 symfony [info] {main} Set slot "main"
+Feb 20 19:50:52 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_homeworkTable.php"
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT h.uploader_id AS h__uploader_id, h.lecture_id AS h__lecture_id, h.file AS h__file, h.date AS h__date, h.id AS h__id, h.rate AS h__rate, h.comment AS h__comment FROM homework h WHERE (h.lecture_id IN (?)) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.full_name AS p__full_name, p.email AS p__email FROM profile p WHERE (p.user_id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at, c.course_id AS c__course_id, c.student_id AS c__student_id FROM sf_guard_user s LEFT JOIN course_student c ON s.id = c.student_id WHERE (c.course_id IN (?)) - (1)
+Feb 20 19:50:52 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_homeworkForm.php"
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.uploader_id AS a__uploader_id, a.lecture_id AS a__lecture_id, a.file AS a__file, a.date AS a__date, a.id AS a__id, a.title AS a__title FROM aid a WHERE (a.lecture_id IN (?)) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT l.id AS l__id, l.url AS l__url, l.course_id AS l__course_id, l.title AS l__title, l.description AS l__description, l.homeworktask AS l__homeworktask, l.displayhomeworkform AS l__displayhomeworkform FROM lecture l WHERE (l.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.is_schacc AS s__is_schacc, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 20 19:50:52 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/course/templates/_aidForm.php"
+Feb 20 19:50:52 symfony [info] {sfPHPView} Decorate content with "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 20 19:50:52 symfony [info] {sfPHPView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\templates/layout.php"
+Feb 20 19:50:52 symfony [info] {main} Call "profile->executeLoginBox()"
+Feb 20 19:50:52 symfony [info] {sfPartialView} Render "D:\dokumentumok\Projects\cukorka\apps\frontend\modules/profile/templates/_loginBox.php"
+Feb 20 19:50:52 symfony [info] {main} Get slot "sidebar"
+Feb 20 19:50:52 symfony [info] {main} Get slot "main"
+Feb 20 19:50:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 20 19:50:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Configuration 18.13 ms (11)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Factories 280.38 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.28 ms (19)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Action "course/showLecture" 274.71 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Partial "course/_sidebar" 48.31 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} View "Success" for "course/showLecture" 237.47 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Partial "course/_homeworkTable" 63.23 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Partial "course/_homeworkForm" 13.54 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Partial "course/_aidForm" 6.48 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Component "profile/loginBox" 0.11 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebDebugLogger} Partial "profile/_loginBox" 6.22 ms (1)
+Feb 20 19:50:52 symfony [info] {sfWebResponse} Send content (95740 o)

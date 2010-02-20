@@ -14,6 +14,7 @@ class Homework extends BaseHomework {
 
     public function construct() {
         $this->type = "homework";
+        parent::construct();
     }
 
     /**
@@ -27,9 +28,10 @@ class Homework extends BaseHomework {
                 ->from('Homework')
                 ->where('uploader_id = ?', $this->uploader_id)
                 ->andWhere('lecture_id = ?', $this->lecture_id)
-                ->fetchOne();
+                ->fetchArray();
 
-        if($homework->id != $this->id) {            
+        if($homework[0]['id'] != $this->id) {
+            $homework = Doctrine::getTable('Homework')->findOneById($homework[0]['id']);
             @unlink($homework->getMyFilePath());
             $homework->delete();
         }

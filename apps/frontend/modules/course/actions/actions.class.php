@@ -135,11 +135,11 @@ class courseActions extends sfActions {
 
         $homework_id = $request->getPostParameter('homework_id');
         $rate = $request->getPostParameter('rate');
-
+        
         $homework = Doctrine::getTable('Homework')->findOneBy('id', $homework_id);
         $homework->rate = $rate == 0 ? null : $rate;
         $homework->save();
-
+        
         echo "Sikeresen módosítottad az értékelést!";
 
         return sfView::NONE;

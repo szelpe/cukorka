@@ -5,6 +5,7 @@ $(document).ready(function(){
             {homework_id: eval(this.id), rate: this.value},
             function(data) {
                 alert(data);
+                $('#messages-outer').css('display', 'block');
                 $('#messages').html(data);
             }
         );
