@@ -17,7 +17,7 @@
             <?php foreach($lecture->Homeworks as $homework) : ?>
         <tr>
             <td>
-                        <?php echo link_to($homework->Uploader->Profile->full_name, 'profile_view', array('id' => $homework->Uploader->Profile->id)); ?>
+                        <?php echo link_to($homework->Uploader->Profile->full_name, 'profile_view', array('id' => $homework->Uploader->id)); ?>
             </td>
             <td>
                         <?php echo link_to($homework->file, preg_replace('/\./', ':', $homework->getFileURL())); ?>
