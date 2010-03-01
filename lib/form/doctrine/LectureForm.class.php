@@ -14,6 +14,7 @@ class LectureForm extends BaseLectureForm {
     public function configure() {
         $this->widgetSchema['url'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['displayHomeworkForm'] = new sfWidgetFormInputCheckbox();
+        $this->widgetSchema['homeworktask'] = new sfWidgetFormTextarea();
     }
 
     public function bind(array $taintedValues = null, array $taintedFiles = null) {
