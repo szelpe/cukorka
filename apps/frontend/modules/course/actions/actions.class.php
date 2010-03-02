@@ -86,10 +86,6 @@ class courseActions extends sfActions {
         $this->setVar('form', $this->forms['homework']);
         $this->setVar('aidForm', $this->forms['aid']);
         $this->setVar('user', $this->user);
-
-        if($this->user && $this->user->isLecturer($this->course)) {
-            sfDynamics::load('cukorka.rateselector');
-        }
     }
 
 

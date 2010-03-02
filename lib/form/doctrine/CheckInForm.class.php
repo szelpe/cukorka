@@ -38,7 +38,7 @@ class CheckInForm extends BaseCheckInForm {
     }
 
     public function render($attributes = array()) {
-        sfDynamics::load('tinyMCE');
+        sfContext::getInstance()->getResponse()->addJavascript('tiny_mce/tiny_mce');
         return parent::render($attributes);
     }
 }

@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-
-<dynamics>
-  <import resource="dynamics-jquery-latest.xml" />
-</dynamics>
-
