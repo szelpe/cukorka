@@ -28,6 +28,7 @@ class profileActions extends sfActions {
      */
     public function executeEdit(sfWebRequest $request) {
         $this->user = $this->_getAccount($request);
+        $this->redirectUnless(($this->getUser()->getId() == $this->user->id) || $this->getUser()->hasCredential('admin') , '', 404);
         $this->form = new sfGuardUserForm($this->user);
         $this->setVar('action', $request->getUri());
 
